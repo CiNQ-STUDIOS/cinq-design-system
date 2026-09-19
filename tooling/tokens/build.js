@@ -336,7 +336,8 @@ ${contrast.join("\n")}
 }
 
 /* Reduced motion: every duration collapses, every travel is zero. Scroll
-   and pointer effects must also not mount; see motion.md. */
+   and pointer effects must also not mount; see motion.md. The in-app
+   setting (html[data-motion="reduced"]) is honoured below the media query. */
 @media (prefers-reduced-motion: reduce) {
   :root {
 ${[...flat].filter(([p]) => p.startsWith("duration.") && !/tooltip|toast-hold/.test(p)).map(([p]) => `    --${cssName(p)}: 0.001ms;`).join("\n")}
@@ -350,6 +351,18 @@ ${[...flat].filter(([p]) => p.startsWith("travel.")).map(([p]) => `    --${cssNa
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+html[data-motion="reduced"] {
+${[...flat].filter(([p]) => p.startsWith("duration.") && !/tooltip|toast-hold/.test(p)).map(([p]) => `  --${cssName(p)}: 0.001ms;`).join("\n")}
+${[...flat].filter(([p]) => p.startsWith("travel.")).map(([p]) => `  --${cssName(p)}: 0px;`).join("\n")}
+}
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
 }
 
 /* Reduced transparency: glass becomes a solid surface. */

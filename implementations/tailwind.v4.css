@@ -51,6 +51,7 @@
   --color-color-vermilion-paper-hover: var(--color-vermilion-paper-hover);
   --color-color-vermilion-text-paper: var(--color-vermilion-text-paper);
   --color-color-vermilion-deep: var(--color-vermilion-deep);
+  --color-color-vermilion-active-paper: var(--color-vermilion-active-paper);
   --color-color-amber: var(--color-amber);
   --color-color-rose-shader: var(--color-rose-shader);
   --color-color-mint-400: var(--color-mint-400);
@@ -99,6 +100,7 @@
   --color-line-standard: var(--line-standard);
   --color-line-strong: var(--line-strong);
   --color-line-selected: var(--line-selected);
+  --color-line-boundary: var(--line-boundary);
   --color-interaction-hover: var(--interaction-hover);
   --color-interaction-pressed: var(--interaction-pressed);
   --color-interaction-selected: var(--interaction-selected);

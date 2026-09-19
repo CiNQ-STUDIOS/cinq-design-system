@@ -29,7 +29,7 @@
   --color-paper-white: #ffffff;
   --color-graphite-1: #14120f;
   --color-graphite-2: #5a554d;
-  --color-graphite-3: #857f74;
+  --color-graphite-3: #7a7368;
   --color-neutral-50: #f7f4ee;
   --color-neutral-100: #f3efe7;
   --color-neutral-200: #e6dfd1;
@@ -48,7 +48,7 @@
   --color-vermilion-300: #fa9b81;
   --color-vermilion-400: #f07554;
   --color-vermilion-500: #f9633a;
-  --color-vermilion-600: #d24011;
+  --color-vermilion-600: #e8521f;
   --color-vermilion-700: #af2f02;
   --color-vermilion-800: #892504;
   --color-vermilion-900: #651b05;
@@ -56,19 +56,20 @@
   --color-vermilion-hover: #ff7c57;
   --color-vermilion-paper: #ef5a2f;
   --color-vermilion-paper-hover: #f97048;
-  --color-vermilion-text-paper: #b8360f;
+  --color-vermilion-text-paper: #9e2d0b;
   --color-vermilion-deep: #c9330c;
+  --color-vermilion-active-paper: #dc4318;
   --color-amber: #ffb020;
   --color-rose-shader: #f53857;
   --color-mint-400: #4fcf8e;
-  --color-mint-700: #1e7a4c;
+  --color-mint-700: #14613b;
   --color-gold-400: #f2c14e;
   --color-gold-600: #a56f00;
   --color-gold-700: #7a5600;
   --color-rose-400: #ff5c7c;
-  --color-rose-700: #c0243f;
+  --color-rose-700: #a51c35;
   --color-sky-400: #7db3ff;
-  --color-sky-700: #1f5fbf;
+  --color-sky-700: #174c9c;
   --color-lilac-400: #c58bff;
   --color-lilac-700: #7b3fd1;
   --color-black: #000000;
@@ -96,7 +97,7 @@
   --text-link: #f9633a;
   --accent-fill: #f9633a;
   --accent-hover: #ff7c57;
-  --accent-active: #d24011;
+  --accent-active: #e8521f;
   --accent-deep: #c9330c;
   --accent-text: #f9633a;
   --accent-ring: #f9633a;
@@ -106,6 +107,7 @@
   --line-standard: color-mix(in srgb, #f3efe7 18%, transparent);
   --line-strong: color-mix(in srgb, #f3efe7 40%, transparent);
   --line-selected: #f9633a;
+  --line-boundary: color-mix(in srgb, #f3efe7 45%, transparent);
   --interaction-hover: color-mix(in srgb, #f3efe7 6%, transparent);
   --interaction-pressed: color-mix(in srgb, #f3efe7 10%, transparent);
   --interaction-selected: color-mix(in srgb, #f9633a 10%, transparent);
@@ -225,6 +227,7 @@
   --border-selected: 2px solid #f9633a;
   --border-invalid: 2px solid #ff5c7c;
   --border-focus: 2px solid #f9633a;
+  --border-boundary: 1px solid color-mix(in srgb, #f3efe7 45%, transparent);
   --shadow-slab: 0px 24px 60px -24px rgb(0 0 0 / 0.55);
   --shadow-strong: 0px 32px 80px -20px rgb(0 0 0 / 0.65);
   --shadow-sheet: 0px -24px 80px -20px rgb(0 0 0 / 0.6);
@@ -495,51 +498,52 @@ html.light {
   --surface-scrim: rgb(20 18 15 / 0.45);
   --text-primary: #14120f;
   --text-secondary: #5a554d;
-  --text-tertiary: #857f74;
+  --text-tertiary: #7a7368;
   --text-inverse: #efe9dd;
-  --text-placeholder: #857f74;
-  --text-link: #b8360f;
+  --text-placeholder: #7a7368;
+  --text-link: #9e2d0b;
   --accent-fill: #ef5a2f;
   --accent-hover: #f97048;
-  --accent-active: #c9330c;
-  --accent-text: #b8360f;
-  --accent-ring: #b8360f;
+  --accent-active: #dc4318;
+  --accent-text: #9e2d0b;
+  --accent-ring: #9e2d0b;
   --accent-soft: color-mix(in srgb, #ef5a2f 12%, transparent);
   --accent-wash: color-mix(in srgb, #ef5a2f 18%, transparent);
   --line-hairline: rgb(20 18 15 / 0.1);
   --line-standard: rgb(20 18 15 / 0.2);
   --line-strong: rgb(20 18 15 / 0.4);
-  --line-selected: #b8360f;
+  --line-selected: #9e2d0b;
+  --line-boundary: rgb(20 18 15 / 0.5);
   --interaction-hover: rgb(20 18 15 / 0.05);
   --interaction-pressed: rgb(20 18 15 / 0.09);
   --interaction-selected: color-mix(in srgb, #ef5a2f 12%, transparent);
-  --interaction-focus: #b8360f;
-  --feedback-success-solid: #1e7a4c;
+  --interaction-focus: #9e2d0b;
+  --feedback-success-solid: #14613b;
   --feedback-success-on-solid: #efe9dd;
-  --feedback-success-text: #1e7a4c;
-  --feedback-success-icon: #1e7a4c;
-  --feedback-success-bg: color-mix(in srgb, #1e7a4c 12%, transparent);
-  --feedback-success-border: color-mix(in srgb, #1e7a4c 40%, transparent);
+  --feedback-success-text: #14613b;
+  --feedback-success-icon: #14613b;
+  --feedback-success-bg: color-mix(in srgb, #14613b 12%, transparent);
+  --feedback-success-border: color-mix(in srgb, #14613b 40%, transparent);
   --feedback-warning-on-solid: #14120f;
   --feedback-warning-text: #7a5600;
   --feedback-warning-icon: #7a5600;
   --feedback-warning-bg: color-mix(in srgb, #a56f00 14%, transparent);
   --feedback-warning-border: color-mix(in srgb, #a56f00 40%, transparent);
-  --feedback-danger-solid: #c0243f;
+  --feedback-danger-solid: #a51c35;
   --feedback-danger-on-solid: #efe9dd;
-  --feedback-danger-text: #c0243f;
-  --feedback-danger-icon: #c0243f;
-  --feedback-danger-bg: color-mix(in srgb, #c0243f 12%, transparent);
-  --feedback-danger-border: color-mix(in srgb, #c0243f 40%, transparent);
-  --feedback-info-solid: #1f5fbf;
+  --feedback-danger-text: #a51c35;
+  --feedback-danger-icon: #a51c35;
+  --feedback-danger-bg: color-mix(in srgb, #a51c35 12%, transparent);
+  --feedback-danger-border: color-mix(in srgb, #a51c35 40%, transparent);
+  --feedback-info-solid: #174c9c;
   --feedback-info-on-solid: #efe9dd;
-  --feedback-info-text: #1f5fbf;
-  --feedback-info-icon: #1f5fbf;
-  --feedback-info-bg: color-mix(in srgb, #1f5fbf 12%, transparent);
-  --feedback-info-border: color-mix(in srgb, #1f5fbf 40%, transparent);
-  --chart-1: #ef5a2f;
-  --chart-2: #1f5fbf;
-  --chart-3: #1e7a4c;
+  --feedback-info-text: #174c9c;
+  --feedback-info-icon: #174c9c;
+  --feedback-info-bg: color-mix(in srgb, #174c9c 12%, transparent);
+  --feedback-info-border: color-mix(in srgb, #174c9c 40%, transparent);
+  --chart-1: #e8521f;
+  --chart-2: #174c9c;
+  --chart-3: #14613b;
   --chart-4: #a56f00;
   --chart-5: #7b3fd1;
   --chart-6: #5a554d;
@@ -563,6 +567,7 @@ html.contrast {
   --accent-text: #fa9b81;
   --line-hairline: color-mix(in srgb, #f3efe7 30%, transparent);
   --line-standard: color-mix(in srgb, #f3efe7 45%, transparent);
+  --line-boundary: color-mix(in srgb, #f3efe7 70%, transparent);
 }
 
 /* Large displays: the marketing radii grow one notch (canonical, 19 Sep). */
@@ -575,7 +580,8 @@ html.contrast {
 }
 
 /* Reduced motion: every duration collapses, every travel is zero. Scroll
-   and pointer effects must also not mount; see motion.md. */
+   and pointer effects must also not mount; see motion.md. The in-app
+   setting (html[data-motion="reduced"]) is honoured below the media query. */
 @media (prefers-reduced-motion: reduce) {
   :root {
     --dur-instant: 0.001ms;
@@ -610,6 +616,39 @@ html.contrast {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+html[data-motion="reduced"] {
+  --dur-instant: 0.001ms;
+  --dur-fast: 0.001ms;
+  --dur-base: 0.001ms;
+  --dur-page: 0.001ms;
+  --dur-slow: 0.001ms;
+  --dur-press: 0.001ms;
+  --dur-reveal: 0.001ms;
+  --dur-cinematic: 0.001ms;
+  --dur-headline: 0.001ms;
+  --dur-count: 0.001ms;
+  --dur-loader-chase: 0.001ms;
+  --dur-loader-spin: 0.001ms;
+  --dur-live-fade: 0.001ms;
+  --dur-marquee: 0.001ms;
+  --dur-stagger: 0.001ms;
+  --dur-stagger-lines: 0.001ms;
+  --dur-stagger-letters: 0.001ms;
+  --dur-stagger-mark: 0.001ms;
+  --travel-sm: 0px;
+  --travel-lg: 0px;
+  --travel-route: 0px;
+  --travel-hero: 0px;
+  --travel-reveal: 0px;
+}
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
 }
 
 /* Reduced transparency: glass becomes a solid surface. */

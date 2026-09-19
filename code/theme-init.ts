@@ -21,14 +21,23 @@
  */
 
 export const THEME_KEY = "cinq-theme";
+export const CONTRAST_KEY = "cinq-contrast";
+export const MOTION_KEY = "cinq-motion";
 export type Theme = "dark" | "light";
+export type Motion = "system" | "full" | "reduced";
 
 const CANVAS = { dark: "#0c0b0a", light: "#f4f1ea" } as const;
 
-/** Runs before first paint. Adds `light` to <html> only when remembered. */
-export const themeInitScript = `(function(){try{if(localStorage.getItem(${JSON.stringify(
+/** Runs before first paint. Adds `light`, `contrast` and `data-motion` to
+    <html> only when remembered; high contrast also follows
+    `prefers-contrast: more` on a first visit. */
+export const themeInitScript = `(function(){try{var d=document.documentElement,g=function(k){return localStorage.getItem(k)};if(g(${JSON.stringify(
   THEME_KEY,
-)})==="light"){document.documentElement.classList.add("light");}}catch(e){}})();`;
+)})==="light"){d.classList.add("light");}var c=g(${JSON.stringify(
+  CONTRAST_KEY,
+)});if(c==="high"||(c===null&&matchMedia("(prefers-contrast: more)").matches)){d.classList.add("contrast");}var m=g(${JSON.stringify(
+  MOTION_KEY,
+)});if(m==="reduced"){d.setAttribute("data-motion","reduced");}}catch(e){}})();`;
 
 /** Same, but a first visit follows the OS preference. Opt in per product. */
 export const themeInitScriptFollowingSystem = `(function(){try{var s=localStorage.getItem(${JSON.stringify(
@@ -51,6 +60,32 @@ export function applyTheme(theme: Theme) {
 
 export function toggleTheme() {
   applyTheme(readTheme() === "light" ? "dark" : "light");
+}
+
+export function applyContrast(high: boolean) {
+  document.documentElement.classList.toggle("contrast", high);
+  try {
+    localStorage.setItem(CONTRAST_KEY, high ? "high" : "standard");
+  } catch {}
+}
+
+/** The in-app motion setting, distinct from the OS preference. */
+export function applyMotion(motion: Motion) {
+  const el = document.documentElement;
+  if (motion === "reduced") el.setAttribute("data-motion", "reduced");
+  else el.removeAttribute("data-motion");
+  try {
+    localStorage.setItem(MOTION_KEY, motion);
+  } catch {}
+}
+
+/** True when either the OS or the in-app setting asks for reduced motion. */
+export function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return (
+    document.documentElement.getAttribute("data-motion") === "reduced" ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
 }
 
 const listeners = new Set<() => void>();

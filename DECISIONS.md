@@ -42,5 +42,6 @@ Precedence: brand kit and the brand conversation > `universal_design_system_guid
 | D-030 | The showcase uses only `implementations/variables.css` and `motion.css`; no framework. | derived | The kit opens without a network; the showcase should too. | `showcase/` |
 | D-031 | `AGENTS.md` stays as the file agents read first and points at `AGENT_RULES.md`; `CLAUDE.md` and `.cursorrules` are emitted. | derived | Claude Code reads `AGENTS.md`/`CLAUDE.md` by name. | root |
 | D-032 | The website's vendored `brand/design-system/` is to be replaced by this repo via `scripts/install-to-product.sh --submodule`. Not done in this pass. | proposed | Avoids two diverging copies. | `MIGRATION_PLAYBOOK.md` |
+| D-033 | Light-mode text colours deepened so every pair passes 4.5:1 on the darker paper: accent text `#9e2d0b` (was `#b8360f`), success `#14613b`, danger `#a51c35`, info `#174c9c`, tertiary `#7a7368`; pressed fills `#e8521f` (ink) and `#dc4318` (paper) so ink text stays ≥ 4.5; a `line-boundary` token (text 45% / graphite 50%) for field borders at ≥ 3:1; light chart-1 is vermilion 600. | derived | D-004 darkened paper; the kit's intent ("5.1:1", AA) is kept, the hexes follow. Measured by `tooling/contrast-check`. | `foundations/contrast-matrix.md` |
 
 Counts are kept current in the final report of each release in `PROGRESS.md`.
