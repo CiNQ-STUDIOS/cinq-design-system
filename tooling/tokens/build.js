@@ -108,7 +108,7 @@ function cssName(p) {
     case "z-index":
       return `z-${rest.join("-")}`;
     case "density":
-      return rest.slice(1).join("-"); // control-h etc.; level chosen by attribute
+      return rest.slice(1).join("-"); // control-h, gap, row-h and so on; the level is chosen by the attribute
     case "typography":
       return null; // classes, not properties
     case "motion":

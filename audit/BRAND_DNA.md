@@ -71,7 +71,7 @@ D-010 to D-014).
 | Lead | `clamp(1.0625rem, 1.35vw, 1.375rem)` / 1.45 | `.t-lead` |
 | Body | `clamp(0.9375rem, 1.05vw, 1.0625rem)` / 1.6 | `.t-body` |
 | Small | 0.8125rem / 1.5 | `.t-small` |
-| Large-display tier | from 1920px every role grows one notch (`.t-hero` to 10rem cap, etc.) | `globals.css @media (min-width: 1920px)` (19 Sep) |
+| Large-display tier | from 1920px every role grows one notch (`.t-hero` to a 10rem cap, `.t-h2` to 7.5rem, `.t-h3` to 3.4rem, body and lead one notch up) | `globals.css @media (min-width: 1920px)` (19 Sep) |
 | Marquee | `clamp(1.75rem, 4vw, 3.5rem)` display | `marquee.tsx:56` |
 | Footer wordmark | `30vw`, line-height 0.8, weight 300–800 on cursor | `footer.tsx:150-160` |
 

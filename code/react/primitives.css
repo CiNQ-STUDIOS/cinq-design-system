@@ -1,7 +1,8 @@
 /* ============================================================================
    CiNQ · primitive styles
-   Every class binds to a token from tokens/tokens.css and nothing else.
-   Import after tokens.css. Lives in @layer components so any utility on the
+   Every class binds to a token from implementations/variables.css and
+   nothing else; keyframes come from implementations/motion.css. Import
+   both before this file. Lives in @layer components so any utility on the
    same element wins (the website learned this the hard way: unlayered CSS
    beats `hidden` and `md:flex`).
    ========================================================================== */
@@ -715,7 +716,7 @@
     border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
     padding: 0.75rem var(--gap-lg) calc(var(--gap-lg) + env(safe-area-inset-bottom));
     box-shadow: var(--shadow-sheet);
-    animation: cq-sheet-in var(--dur-slow) var(--ease-out);
+    animation: cq-sheet-in var(--dur-press) var(--ease-emphasized);
   }
   .cq-sheet-handle {
     width: 40px;
@@ -726,7 +727,7 @@
   }
   .cq-dialog::backdrop,
   .cq-sheet::backdrop {
-    background: rgb(12 11 10 / 0.6);
+    background: var(--surface-scrim);
   }
   .cq-dialog-title {
     font-size: var(--text-title);
@@ -742,12 +743,6 @@
     justify-content: flex-end;
     gap: 0.5rem;
     margin-top: var(--gap-lg);
-  }
-  @keyframes cq-dialog-in {
-    from { opacity: 0; transform: scale(0.98); }
-  }
-  @keyframes cq-sheet-in {
-    from { transform: translateY(100%); }
   }
   .cq-tooltip {
     background: var(--app-inverse);
@@ -806,9 +801,6 @@
     outline-offset: 2px;
     border-radius: 4px;
   }
-  @keyframes cq-toast-in {
-    from { opacity: 0; transform: translateY(var(--travel-sm)); }
-  }
 
   /* ── Feedback states ─────────────────────────────────────────────────── */
   .cq-state {
@@ -839,38 +831,13 @@
     font-size: var(--body-size);
     margin: 0;
   }
-  .cq-skeleton {
-    border-radius: var(--radius-control);
-    background: var(--app-raised);
-    animation: cq-pulse 1.6s var(--ease-io) infinite;
-  }
-  @keyframes cq-pulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
-  }
 
   /* ── The mark as loader ──────────────────────────────────────────────── */
   .cq-loader {
     display: inline-block;
-    color: var(--accent);
+    color: var(--accent-fill);
   }
-  .cq-loader svg {
-    width: 100%;
-    height: 100%;
-    animation: cq-spin 2.4s linear infinite;
-    transform-origin: 50% 50%;
-  }
-  .cq-loader path {
-    opacity: 0.25;
-    animation: cq-chase 1.2s ease-in-out infinite;
-  }
-  .cq-loader path:nth-child(1) { animation-delay: 0s; }
-  .cq-loader path:nth-child(2) { animation-delay: -0.96s; }
-  .cq-loader path:nth-child(3) { animation-delay: -0.72s; }
-  .cq-loader path:nth-child(4) { animation-delay: -0.48s; }
-  .cq-loader path:nth-child(5) { animation-delay: -0.24s; }
-  @keyframes cq-spin { to { transform: rotate(360deg); } }
-  @keyframes cq-chase { 0%, 100% { opacity: 0.25; } 25% { opacity: 1; } }
+  /* Spin, chase and the per-segment delays come from implementations/motion.css. */
 
   .cq-sr-only {
     position: absolute;

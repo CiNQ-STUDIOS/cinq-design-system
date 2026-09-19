@@ -1,6 +1,6 @@
 # Grid and spacing
 
-Traces: P5 (one thing reads first), P7 (decks on a phone), SM12 (alternating families). Tokens: `space.*`, `layout.*`, `breakpoint.*`, `density.*`. Generated: `--space-*`, `--layout-*`, `--control-h` etc.
+Traces: P5 (one thing reads first), P7 (decks on a phone), SM12 (alternating families). Tokens: `space.*`, `layout.*`, `breakpoint.*`, `density.*`. Generated: `--space-*`, `--layout-*`, `--control-h`, `--control-pad-x`, `--gap`, `--gap-lg`, `--row-h`, `--body-size`, `--icon`.
 
 ## 1. Spacing scale
 

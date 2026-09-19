@@ -26,7 +26,8 @@ export const MOTION_KEY = "cinq-motion";
 export type Theme = "dark" | "light";
 export type Motion = "system" | "full" | "reduced";
 
-const CANVAS = { dark: "#0c0b0a", light: "#f4f1ea" } as const;
+// The meta theme-color needs literal hexes: these are surface.canvas in both modes.
+const CANVAS = { dark: "#0c0b0a", light: "#efe9dd" } as const;
 
 /** Runs before first paint. Adds `light`, `contrast` and `data-motion` to
     <html> only when remembered; high contrast also follows
