@@ -1,0 +1,51 @@
+---
+description: CiNQ design system. Applies to any UI, styling, copy or motion work in a CiNQ product.
+globs: ["**/*.tsx", "**/*.jsx", "**/*.css", "**/*.html", "**/*.vue", "**/*.svelte"]
+alwaysApply: false
+---
+
+# CiNQ design system
+
+The name is `CiNQ`. Not Cinq, not CINQ. Products too: `CiNQ RMS`.
+
+Before any UI work read, in order: `brand/design-system/AGENTS.md`, the
+product profile (`project-profile.md` or `brand/design-system/profiles/<product>.md`),
+`brand/design-system/spec/DESIGN.md`, `brand/design-system/spec/SURFACES.md`.
+Tokens are in `brand/design-system/tokens/tokens.css`. Reference components
+are in `brand/design-system/code/react/primitives.tsx` and `primitives.css`.
+Task prompts are in `brand/design-system/prompts/`. Ship only after walking
+`brand/design-system/spec/PRE-SHIP.md` and writing its report.
+
+## Never
+
+- A colour, radius, shadow, font size or duration literal in a component. Tokens only.
+- A second accent. Semantic colours are signals.
+- Bone text on vermilion. Text on an accent fill is ink (`--on-accent`).
+- `text-accent` for a word. Words use `--accent-text`. Fills, the mark and display numerals use `--accent`.
+- Pure black or white as canvas or type.
+- Gradients or glass in UI. Glass is for fixed chrome only; the hero shader is the one gradient.
+- A medium shadow. Large and soft, or none.
+- Two motion libraries on one element. Scroll-linked motion under reduced motion.
+- Animating height, width, top or left.
+- Title Case, em-dashes, exclamation marks, banned words (leverage, seamless, cutting-edge, world-class, next-gen, revolutionise, empower, unlock, robust, innovative, solution, synergy, delight), or a button that says Submit, OK, Get started, Learn more.
+- Invented numbers, names, addresses, logos, testimonials.
+- A control without rest, hover, focus-visible, active, disabled, loading (and invalid for fields). A region without empty, loading, error.
+- A new button, input, dialog, table or nav when a primitive exists.
+
+## Always
+
+- Sentence case. Buttons say what happens.
+- Both modes (dark default, `html.light` opt-in) on every screen.
+- One archetype per screen, named in the profile; `data-density` set on its root.
+- Focus visible, labels bound, 44px tap targets, state never colour alone, `<dialog>` for overlays.
+- Tabular figures in number columns. `Rs 12,500`. `19 Sep 2026`. 24-hour in tools.
+- Copy in the content module. Custom CSS in `@layer components`.
+- Deviations in the profile's register with a reason and a review date. Hard constraints (DESIGN.md §1) are bugs, not deviations.
+- When two options are both allowed, the quieter one.
+
+## Stack defaults
+
+Next.js App Router, Tailwind v4 via `tokens/tailwind-v4.css`, GSAP for
+scroll (marketing only), Motion for component state, Phosphor icons at one
+weight per surface, `next/font/local` from `brand/fonts/`,
+`tokens/theme-init.ts` as the first script in `<head>`.

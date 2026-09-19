@@ -1,0 +1,364 @@
+/* ============================================================================
+   CiNQ design tokens · v1.0.0
+   The source of truth. Every colour, radius, shadow, duration and spacing
+   value in any CiNQ product is one of these. Components never carry a hex.
+
+   Modes. Dark is the brand and the default (`:root`). Light is an opt-in
+   (`html.light`): the same roles with ink and bone swapped, and the vermilion
+   deepened wherever it is read as text. Both blocks define every token.
+
+   Role names are canonical (--canvas, --text, --accent). The brand words
+   --ink and --bone are kept as aliases because the website was built on them
+   and they are how the studio talks about colour. Prefer the role names in
+   new code.
+
+   Mirrors: tokens.ts, tokens.json, tailwind-v4.css, tailwind-v3.cjs. Change a
+   value here, then in each mirror, then log it in CHANGELOG.md.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Brand fills ───────────────────────────────────────────────────────
+     The one accent. Vermilion goes on buttons, the mark, selected states and
+     the colour-block panels. Never a second accent. */
+  --accent: #f9633a;
+  --accent-hover: #ff7c57;
+  --accent-active: #d24011;
+  --accent-deep: #c9330c;          /* print shadows and the OG gradient only */
+  --on-accent: #0c0b0a;            /* text on a vermilion fill, both modes. 6.44:1 */
+
+  /* ── Accent as text, and the focus ring ────────────────────────────────
+     Separate from the fill on purpose. On ink the same hue passes as text;
+     on paper it does not, so light mode swaps in a deeper vermilion here and
+     nowhere else. Use --accent-text for links and labels, --accent for
+     fills, the mark and display numerals. */
+  --accent-text: #f9633a;          /* 6.44:1 on canvas */
+  --focus-ring: #f9633a;
+
+  /* ── The vermilion ramp ────────────────────────────────────────────────
+     Eleven steps, hue locked at OKLCH 36°. 500 is the accent. Use the ramp
+     for charts, soft fills and hover math, never as new accents. */
+  --vermilion-50: #fff1ec;
+  --vermilion-100: #ffdfd6;
+  --vermilion-200: #ffbfad;
+  --vermilion-300: #fa9b81;
+  --vermilion-400: #f07554;
+  --vermilion-500: #f9633a;
+  --vermilion-600: #d24011;
+  --vermilion-700: #af2f02;
+  --vermilion-800: #892504;
+  --vermilion-900: #651b05;
+  --vermilion-950: #431104;
+
+  /* ── Marketing canvas ──────────────────────────────────────────────────
+     Public pages. Warm near-black, never #000. Each step is one layer up. */
+  --canvas: #0c0b0a;
+  --canvas-2: #141311;             /* cards, panels, the header pill */
+  --canvas-3: #1d1b18;             /* a second step, once or twice a page */
+  --canvas-4: #2a2723;             /* device bezels only */
+  --canvas-warm: #1a1410;          /* the warm panel in the work showcase */
+
+  /* ── Application canvas ────────────────────────────────────────────────
+     Dashboards, consoles, the mobile apps. Same family, tighter steps, plus
+     a sunken well for inputs and table bodies and an inverse for tooltips. */
+  --app-canvas: #0c0b0a;
+  --app-surface: #141311;
+  --app-raised: #1d1b18;
+  --app-sunken: #080807;
+  --app-inverse: #f3efe7;
+  --app-on-inverse: #0c0b0a;
+
+  /* ── Lines ─────────────────────────────────────────────────────────────
+     Hairlines are bone at low alpha so they invert with the mode for free. */
+  --line: color-mix(in srgb, var(--text) 10%, transparent);
+  --line-strong: color-mix(in srgb, var(--text) 18%, transparent);
+  --line-selected: var(--accent);
+
+  /* ── Text ──────────────────────────────────────────────────────────────
+     Bone, never pure white. text-3 is 3.67:1: large text, uppercase mono
+     labels and decorative use only. */
+  --text: #f3efe7;                 /* 17.15:1 on canvas */
+  --text-2: #aca69b;               /* 8.13:1 on canvas */
+  --text-3: #6f6a62;               /* 3.67:1 on canvas. Large or mono only. */
+  --text-inverse: #0c0b0a;
+
+  /* ── Brand aliases ─────────────────────────────────────────────────────
+     The words the studio uses. Ink is the canvas, bone is the type. */
+  --ink: var(--canvas);
+  --ink-2: var(--canvas-2);
+  --ink-3: var(--canvas-3);
+  --ink-4: var(--canvas-4);
+  --ink-warm: var(--canvas-warm);
+  --bone: var(--text);
+  --bone-2: var(--text-2);
+  --bone-3: var(--text-3);
+  --amber: #ffb020;                /* inside the hero shader and the OG image only. Never UI. */
+
+  /* ── Semantic ──────────────────────────────────────────────────────────
+     Negative is a rose, not a red, so it never fights the vermilion. Each
+     has a fill, a text colour that passes on the canvas, and a soft tint
+     for badges and rows. Here the -text values equal the fills; light mode
+     deepens them. */
+  --positive: #4fcf8e;             /* 9.97:1 on canvas */
+  --positive-text: #4fcf8e;
+  --positive-soft: color-mix(in srgb, var(--positive) 14%, transparent);
+  --on-positive: #0c0b0a;
+  --negative: #ff5c7c;             /* 6.62:1 on canvas */
+  --negative-text: #ff5c7c;
+  --negative-soft: color-mix(in srgb, var(--negative) 14%, transparent);
+  --on-negative: #0c0b0a;
+  --attention: #f2c14e;            /* 11.72:1 on canvas */
+  --attention-text: #f2c14e;
+  --attention-soft: color-mix(in srgb, var(--attention) 14%, transparent);
+  --on-attention: #0c0b0a;
+  --info: #7db3ff;                 /* 9.14:1 on canvas */
+  --info-text: #7db3ff;
+  --info-soft: color-mix(in srgb, var(--info) 14%, transparent);
+  --on-info: #0c0b0a;
+
+  /* ── Footer chrome ─────────────────────────────────────────────────────
+     The footer is ink in both modes. It is where the wordmark lives. */
+  --footer-bg: #0c0b0a;
+  --footer-text: #f3efe7;
+  --footer-text-2: #aca69b;
+  --footer-line: rgb(243 239 231 / 0.1);
+  --footer-accent: #f9633a;
+
+  /* ── Chart series ──────────────────────────────────────────────────────
+     Fixed order. The same series reads the same colour on every screen.
+     1 vermilion, 2 sky, 3 mint, 4 gold, 5 lilac, 6 bone-2. All 6.4:1 or
+     better on the dark canvas. --chart-grid is for axes and gridlines. */
+  --chart-1: #f9633a;
+  --chart-2: #7db3ff;
+  --chart-3: #4fcf8e;
+  --chart-4: #f2c14e;
+  --chart-5: #c58bff;
+  --chart-6: #aca69b;
+  --chart-grid: color-mix(in srgb, var(--text) 8%, transparent);
+
+  /* ── Typography ────────────────────────────────────────────────────────
+     Bricolage Grotesque for display, Geist for reading, Geist Mono for
+     labels. The font variables are set by the loader (next/font or
+     @font-face) and fall through to the family name. */
+  --font-display: var(--font-bricolage, "Bricolage Grotesque"), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist, "Geist"), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono, "Geist Mono"), ui-monospace, "SF Mono", monospace;
+
+  --text-display: clamp(2.75rem, 6.6vw, 7.5rem);    /* the hero, one per page */
+  --text-hero: clamp(2.25rem, 5.2vw, 5.5rem);       /* section titles on marketing */
+  --text-title: clamp(1.5rem, 2.6vw, 2.5rem);       /* h3, product names, app page titles */
+  --text-slab: 1.25rem;                              /* a card heading */
+  --text-section: 1.0625rem;                         /* an app section heading */
+  --text-lead: clamp(1.0625rem, 1.35vw, 1.375rem);
+  --text-subheading: 0.9375rem;
+  --text-body: clamp(0.9375rem, 1.05vw, 1.0625rem);
+  --text-label: 0.8125rem;
+  --text-nav: 0.9375rem;
+  --text-kicker: 0.75rem;                            /* mono, uppercase, tracked */
+  --text-eyebrow: 0.75rem;
+  --text-bottom-nav: 0.6875rem;
+  --text-numeral: clamp(2rem, 3.4vw, 3.5rem);        /* display numerals in stat tiles */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-display: 700;
+  --weight-display-tight: 800;
+
+  --leading-display: 0.95;
+  --leading-tight: 1.1;
+  --leading-body: 1.6;
+  --leading-lead: 1.45;
+
+  --tracking-display: -0.03em;
+  --tracking-display-tight: -0.045em;
+  --tracking-body: 0;
+  --tracking-mono: 0.08em;
+
+  /* ── Radius ────────────────────────────────────────────────────────────
+     Tight in the apps, big on the public site. Every interactive pill is
+     fully round. */
+  --radius-control: 12px;          /* inputs, small buttons, chips */
+  --radius-slab: 16px;             /* cards inside apps, table wrappers */
+  --radius-panel: 20px;            /* dialogs, popovers, inner panels of a sidebar */
+  --radius-sheet: 28px;            /* bottom sheets, full-height drawers */
+  --radius-pill: 9999px;           /* every button and toggle */
+  --radius-marketing: 28px;        /* cards on the public site */
+  --radius-marketing-sm: 16px;
+
+  /* ── Borders ───────────────────────────────────────────────────────────*/
+  --border-hairline: 1px solid var(--line);
+  --border-standard: 1px solid var(--line-strong);
+  --border-selected: 2px solid var(--line-selected);
+
+  /* ── Shadows ───────────────────────────────────────────────────────────
+     Large, soft, tinted to ink. There is no medium shadow. Slab is for
+     hovered cards, strong for popovers, pressed is inset, sheet is the only
+     one that lifts a whole panel off the page. */
+  --shadow-slab: 0 24px 60px -24px rgb(0 0 0 / 0.55);
+  --shadow-strong: 0 32px 80px -20px rgb(0 0 0 / 0.65);
+  --shadow-pressed: inset 0 2px 6px rgb(0 0 0 / 0.35);
+  --shadow-sheet: 0 -24px 80px -20px rgb(0 0 0 / 0.6);
+  --shadow-bezel: inset 0 0 0 1px color-mix(in srgb, var(--text) 8%, transparent);
+  --shadow-bezel-top: inset 0 1px 0 color-mix(in srgb, var(--text) 6%, transparent);
+
+  /* ── Density ───────────────────────────────────────────────────────────
+     Three levels. Set data-density="compact" or "dense" on a surface root
+     to switch. The default is comfortable. */
+  --control-h: 44px;
+  --control-pad-x: 16px;
+  --gap: 16px;
+  --gap-lg: 24px;
+  --row-h: 52px;
+  --body-size: var(--text-body);
+
+  /* ── Layout ────────────────────────────────────────────────────────────*/
+  --page-max: 1280px;              /* marketing content */
+  --app-max: 1600px;               /* dashboards and consoles */
+  --prose-max: 68ch;
+  --nav-h: 72px;
+  --nav-max: 1120px;               /* the header pill */
+  --sidebar-w: 264px;
+  --bottom-nav-h: 64px;
+  --pad: clamp(20px, 4.2vw, 64px); /* page gutter */
+  --touch-min: 44px;
+
+  /* ── Motion ────────────────────────────────────────────────────────────
+     One easing for everything that moves on its own, one symmetric ease for
+     things that open and close, and nothing linear except scrubbed tweens. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;               /* colour and opacity on hover */
+  --dur-base: 300ms;               /* toggles, menus, small moves */
+  --dur-slow: 600ms;               /* the transform on buttons, card tilt return */
+  --dur-reveal: 900ms;             /* in-view reveals and text masks */
+  --dur-page: 700ms;               /* route transitions */
+  --stagger: 60ms;
+  --travel-sm: 8px;                /* how far a small element moves on enter */
+  --travel-lg: 24px;
+}
+
+/* ── Density levels ────────────────────────────────────────────────────── */
+[data-density="compact"] {
+  --control-h: 36px;
+  --control-pad-x: 12px;
+  --gap: 12px;
+  --gap-lg: 16px;
+  --row-h: 40px;
+  --body-size: 0.9375rem;
+}
+[data-density="dense"] {
+  --control-h: 32px;
+  --control-pad-x: 10px;
+  --gap: 8px;
+  --gap-lg: 12px;
+  --row-h: 32px;
+  --body-size: 0.875rem;
+}
+
+/* ── Light mode, opt-in ────────────────────────────────────────────────── */
+html.light {
+  color-scheme: light;
+
+  --accent: #ef5a2f;
+  --accent-hover: #f97048;
+  --accent-active: #c9330c;
+  --on-accent: #0c0b0a;            /* 5.78:1 */
+
+  --accent-text: #b8360f;          /* 5.21:1 on paper */
+  --focus-ring: #b8360f;
+
+  --canvas: #f4f1ea;               /* paper */
+  --canvas-2: #ebe7de;
+  --canvas-3: #e2ddd1;
+  --canvas-4: #cdc6b8;
+  --canvas-warm: #efe3d3;
+
+  --app-canvas: #f4f1ea;
+  --app-surface: #ffffff;
+  --app-raised: #ebe7de;
+  --app-sunken: #ebe7de;
+  --app-inverse: #14120f;
+  --app-on-inverse: #f4f1ea;
+
+  --line: rgb(20 18 15 / 0.1);
+  --line-strong: rgb(20 18 15 / 0.2);
+
+  --text: #14120f;                 /* 16.58:1 on paper */
+  --text-2: #5a554d;               /* 6.55:1 on paper */
+  --text-3: #857f74;               /* 3.52:1. Large or mono only. */
+  --text-inverse: #f4f1ea;
+
+  --positive: #1e7a4c;             /* paper on it 4.72:1 */
+  --positive-text: #1e7a4c;        /* 4.72:1 on paper */
+  --on-positive: #f4f1ea;
+  --negative: #c0243f;             /* paper on it 5.22:1 */
+  --negative-text: #c0243f;
+  --on-negative: #f4f1ea;
+  --attention: #f2c14e;            /* text on it 11.14:1 */
+  --attention-text: #7a5600;       /* 5.89:1 on paper */
+  --on-attention: #14120f;
+  --info: #1f5fbf;                 /* paper on it 5.4:1 */
+  --info-text: #1f5fbf;
+  --on-info: #f4f1ea;
+
+  --chart-1: #ef5a2f;              /* 3.02:1, marks only, never as text */
+  --chart-2: #1f5fbf;
+  --chart-3: #1e7a4c;
+  --chart-4: #a56f00;
+  --chart-5: #7b3fd1;
+  --chart-6: #5a554d;
+  --chart-grid: rgb(20 18 15 / 0.08);
+
+  --shadow-slab: 0 24px 60px -24px rgb(20 18 15 / 0.25);
+  --shadow-strong: 0 32px 80px -20px rgb(20 18 15 / 0.3);
+  --shadow-pressed: inset 0 2px 6px rgb(20 18 15 / 0.15);
+  --shadow-sheet: 0 -24px 80px -20px rgb(20 18 15 / 0.25);
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────────
+   The page is static and complete. Every duration collapses; scroll-linked
+   effects must also check the query in JS and not mount. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0.001ms;
+    --dur-base: 0.001ms;
+    --dur-slow: 0.001ms;
+    --dur-reveal: 0.001ms;
+    --dur-page: 0.001ms;
+    --stagger: 0ms;
+    --travel-sm: 0px;
+    --travel-lg: 0px;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────────
+   The rules every product inherits with the tokens. */
+html {
+  background: var(--canvas);
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
