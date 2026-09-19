@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b0a">
+<title>RMS after · CiNQ archetype</title>
+<link rel="icon" href="../mark.svg">
+<link rel="stylesheet" href="../../implementations/variables.css">
+<link rel="stylesheet" href="../../implementations/motion.css">
+<link rel="stylesheet" href="../../code/react/primitives.css">
+<link rel="stylesheet" href="../showcase.css">
+<link rel="stylesheet" href="shell.css">
+<script src="../showcase.js"></script>
+</head>
+<body data-density="dense" data-density-root>
+<a class="cq-sr-only" href="#main">Skip to main</a>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<div class="app no-sidebar"><div class="content">
+<header class="appbar">
+  <a class="sc-lockup" href="../index.html" aria-label="CiNQ RMS home"><span class="sc-mark" style="width: 20px; height: 20px" data-mark></span><b>CiNQ RMS</b></a>
+  <div class="crumbs"><span>Branch 1</span><span aria-hidden="true">/</span><b>Orders and inventory</b></div>
+  <span class="live"><i></i>Live · 14:05</span>
+  <span class="spacer"></span>
+  <div class="banner banner-warning" style="margin: 0; padding: var(--space-1) var(--space-3)"><span>Low stock: naan dough for ~40 more.</span><a href="#">Receive stock</a></div>
+  <div class="search" role="button" tabindex="0" aria-label="Search, Command K"><span aria-hidden="true">⌕</span><span>Order, table or dish</span><kbd>⌘K</kbd></div>
+</header>
+<main id="main" class="page" style="max-width: none; display: grid; grid-template-columns: 62fr 38fr; gap: var(--gap); padding: var(--gap)">
+  <section class="region" aria-labelledby="q2">
+    <div class="region-h"><h2 id="q2">Order queue</h2><div class="cq-segmented" role="radiogroup" aria-label="Station"><button class="cq-segment" role="radio" aria-checked="true" type="button">All</button><button class="cq-segment" role="radio" aria-checked="false" type="button">Grill</button><button class="cq-segment" role="radio" aria-checked="false" type="button">Tandoor</button><button class="cq-segment" role="radio" aria-checked="false" type="button">Curry</button></div></div>
+    <div class="cq-table-wrap"><table class="cq-table"><caption class="cq-sr-only">Order queue</caption>
+      <thead><tr><th class="cq-sticky">Order</th><th>Table</th><th>Items</th><th>Station</th><th class="cq-num">Elapsed</th><th>Status</th></tr></thead>
+      <tbody aria-live="polite"><tr class="cq-live-row" tabindex="0"><td class="cq-sticky"><span style="font-family: var(--font-mono)">#415</span></td><td><span style="font-family: var(--font-mono)">T9</span></td><td>Naan × 6</td><td>Tandoor</td><td class="cq-num"><span style="font-family: var(--font-mono)">1m</span></td><td><span class="cq-badge cq-badge-accent">New</span></td></tr><tr tabindex="0"><td class="cq-sticky"><span style="font-family: var(--font-mono)">#414</span></td><td><span style="font-family: var(--font-mono)">D</span></td><td>Biryani × 2, Raita</td><td>Curry</td><td class="cq-num"><span style="font-family: var(--font-mono)">3m</span></td><td><span class="cq-badge cq-badge-accent">New</span></td></tr><tr tabindex="0"><td class="cq-sticky"><span style="font-family: var(--font-mono)">#413</span></td><td><span style="font-family: var(--font-mono)">T2</span></td><td>Seekh kebab × 4</td><td>Grill</td><td class="cq-num"><span style="font-family: var(--font-mono)">6m</span></td><td><span class="cq-badge cq-badge-info">Cooking</span></td></tr><tr aria-selected="true" tabindex="0"><td class="cq-sticky"><span style="font-family: var(--font-mono)">#412</span></td><td><span style="font-family: var(--font-mono)">T4</span></td><td>Chicken karahi × 2, Naan × 4, Raita</td><td>Curry</td><td class="cq-num"><span style="font-family: var(--font-mono)">12m</span></td><td><span class="cq-badge cq-badge-positive">Ready</span></td></tr><tr tabindex="0"><td class="cq-sticky"><span style="font-family: var(--font-mono)">#411</span></td><td><span style="font-family: var(--font-mono)">T7</span></td><td>Chai × 3</td><td>Bar</td><td class="cq-num"><span style="font-family: var(--font-mono)">14m</span></td><td><span class="cq-badge">Served</span></td></tr><tr tabindex="0"><td class="cq-sticky"><span style="font-family: var(--font-mono)">#410</span></td><td><span style="font-family: var(--font-mono)">D</span></td><td>Mutton karahi, Naan × 2</td><td>Curry</td><td class="cq-num danger-text"><span style="font-family: var(--font-mono)">18m</span></td><td><span class="cq-badge cq-badge-info">Cooking</span></td></tr><tr tabindex="0"><td class="cq-sticky"><span style="font-family: var(--font-mono)">#409</span></td><td><span style="font-family: var(--font-mono)">T1</span></td><td>Paneer karahi</td><td>Curry</td><td class="cq-num danger-text"><span style="font-family: var(--font-mono)">21m</span></td><td><span class="cq-badge cq-badge-positive">Ready</span></td></tr></tbody>
+    </table></div>
+    <div class="region-h" style="margin-top: var(--gap-lg)"><h2>Inventory, today</h2><a href="data-workspace.html">All items →</a></div>
+    <div class="cq-table-wrap"><table class="cq-table"><thead><tr><th>Item</th><th class="cq-num">On hand</th><th class="cq-num">Par</th><th>State</th></tr></thead><tbody>
+      <tr><td>Naan dough</td><td class="cq-num"><span style="font-family: var(--font-mono)">40 pcs</span></td><td class="cq-num"><span style="font-family: var(--font-mono)">200 pcs</span></td><td><span class="cq-badge cq-badge-attention">Low</span></td></tr><tr><td>Chicken</td><td class="cq-num"><span style="font-family: var(--font-mono)">18 kg</span></td><td class="cq-num"><span style="font-family: var(--font-mono)">20 kg</span></td><td><span class="cq-badge cq-badge-positive">OK</span></td></tr><tr><td>Mutton</td><td class="cq-num"><span style="font-family: var(--font-mono)">6 kg</span></td><td class="cq-num"><span style="font-family: var(--font-mono)">10 kg</span></td><td><span class="cq-badge cq-badge-attention">Low</span></td></tr><tr><td>Rice</td><td class="cq-num"><span style="font-family: var(--font-mono)">45 kg</span></td><td class="cq-num"><span style="font-family: var(--font-mono)">30 kg</span></td><td><span class="cq-badge cq-badge-positive">OK</span></td></tr><tr><td>Cooking oil</td><td class="cq-num"><span style="font-family: var(--font-mono)">12 L</span></td><td class="cq-num"><span style="font-family: var(--font-mono)">15 L</span></td><td><span class="cq-badge cq-badge-positive">OK</span></td></tr>
+    </tbody></table></div>
+  </section>
+  <aside class="region" aria-label="Selected order">
+    <div class="panel">
+      <div class="region-h"><h2><span style="font-family: var(--font-mono)">#412</span> · Table 4</h2><span class="cq-badge cq-badge-positive">Ready</span></div>
+      <ul class="op-card" style="box-shadow: none; padding: 0; background: transparent"><li><b>2 ×</b> Chicken karahi</li><li><b>4 ×</b> Naan</li><li><b>1 ×</b> Raita <span style="color: var(--text-secondary)">no onion</span></li></ul>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-4)"><button class="cq-btn cq-btn-primary cq-btn-no-ico" type="button" ><span class="cq-btn-label">Mark served</span></button><div style="display: flex; gap: var(--space-2)"><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" ><span class="cq-btn-label">Print KOT</span></button><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" ><span class="cq-btn-label">Receipt</span></button><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" class="cq-btn cq-btn-ghost cq-btn-no-ico danger-text"><span class="cq-btn-label">Void</span></button></div></div>
+    </div>
+    <div class="panel" style="margin-top: var(--gap)"><span class="cq-mono" style="color: var(--text-tertiary); display: block; margin-bottom: var(--space-3)">Shortcuts</span>
+      <dl class="kv" style="grid-template-columns: auto 1fr"><dt><kbd style="font-family: var(--font-mono); font-size: var(--font-size-caption); padding: 2px 6px; border-radius: var(--radius-check); background: var(--surface-raised)">↑ ↓</kbd></dt><dd>Move</dd><dt><kbd style="font-family: var(--font-mono); font-size: var(--font-size-caption); padding: 2px 6px; border-radius: var(--radius-check); background: var(--surface-raised)">↵</kbd></dt><dd>Open</dd><dt><kbd style="font-family: var(--font-mono); font-size: var(--font-size-caption); padding: 2px 6px; border-radius: var(--radius-check); background: var(--surface-raised)">S</kbd></dt><dd>Served</dd><dt><kbd style="font-family: var(--font-mono); font-size: var(--font-size-caption); padding: 2px 6px; border-radius: var(--radius-check); background: var(--surface-raised)">K</kbd></dt><dd>Print KOT</dd><dt><kbd style="font-family: var(--font-mono); font-size: var(--font-size-caption); padding: 2px 6px; border-radius: var(--radius-check); background: var(--surface-raised)">N</kbd></dt><dd>New order</dd><dt><kbd style="font-family: var(--font-mono); font-size: var(--font-size-caption); padding: 2px 6px; border-radius: var(--radius-check); background: var(--surface-raised)">?</kbd></dt><dd>All shortcuts</dd></dl>
+    </div>
+  </aside>
+</main></div></div>
+<script>CQ.modebar({ home: "../index.html", density: true });</script>
+</body>
+</html>

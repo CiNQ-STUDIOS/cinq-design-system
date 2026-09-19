@@ -76,7 +76,7 @@ if (!GRADIENTS) {
         if (!curves.includes(norm)) fails.push(`M-A ${rel(f)}: ${m[0]} is not a library curve`);
       }
       // M-B
-      for (const m of text.matchAll(/\b(transition|animation)(-duration)?\s*:\s*([^;}]+)/g)) {
+      for (const m of text.matchAll(/\b(transition|animation)(-duration)?\s*:\s*([^;}"]+)/g)) {
         const val = m[3];
         for (const d of val.matchAll(/\b(\d+(?:\.\d+)?m?s)\b/g)) {
           if (!durations.has(d[1]) && !/animation-delay/.test(m[0])) fails.push(`M-B ${rel(f)}: raw duration "${d[1]}" in "${m[0].slice(0, 60)}"`);
@@ -160,6 +160,7 @@ if (!GRADIENTS) {
         const g = m[0];
         if (/var\(--gradient-/.test(g)) continue;
         if (!/#|rgb|hsl|var\(/.test(g)) continue; // transparent/currentColor technique
+        if (/^linear-gradient\(#000 0 0\)$/.test(g)) continue; // the mask-composite idiom for the illuminated ring
         if (/showcase[\\/]gradient-lab|hero-canvas|opengraph/.test(f)) continue;
         fails.push(`G-C ${rel(f)}: raw gradient "${g.slice(0, 50)}"`);
       }

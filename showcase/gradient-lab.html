@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b0a">
+<title>Gradient lab · CiNQ design system</title>
+<link rel="icon" href="mark.svg">
+<link rel="stylesheet" href="../implementations/variables.css">
+<link rel="stylesheet" href="../implementations/motion.css">
+<link rel="stylesheet" href="../code/react/primitives.css">
+<link rel="stylesheet" href="showcase.css">
+<script src="showcase.js"></script>
+</head>
+<body>
+<div class="sc-grain" aria-hidden="true"></div>
+<main class="sc-page" id="main" >
+<p class="sc-kicker">CiNQ design system · gradients and effects</p>
+<h1 class="sc-title">Gradient lab</h1>
+<p class="sc-lead">Every gradient, glow, illuminated border, wash, grain and glass surface, in both modes. One colour to transparent, always, except the two OG ribbons.</p>
+<nav class="sc-nav" aria-label="Showcase"><a href="index.html">Style guide</a><a href="motion-lab.html">Motion lab</a><a href="gradient-lab.html">Gradient lab</a><a href="archetypes/operational-console.html">Console</a><a href="archetypes/executive-dashboard.html">Dashboard</a><a href="archetypes/data-workspace.html">Workspace</a><a href="archetypes/setup-onboarding.html">Setup</a><a href="archetypes/detail-record.html">Detail</a><a href="archetypes/mobile-utility.html">Mobile</a><a href="archetypes/tablet-kiosk-pos.html">Till</a><a href="archetypes/settings.html">Settings</a><a href="archetypes/auth-entry.html">Sign in</a><a href="archetypes/rms-after.html">RMS after</a></nav>
+
+<section class="sc-section" id="catalog">
+<h2>The catalog</h2>
+<p>Every gradient token, drawn on the surface it is meant for. Switch to light mode: the geometry stays, the base colour re-resolves. All are one colour to transparent except the two OG ribbons.</p>
+<div class="sc-grid"><div class="sc-swatch"><div class="sc-grad on-canvas"><i style="background: var(--gradient-scrim-hero)"></i></div><b>scrim-hero</b><code>radial · 120% 80% at 0% 100% · srgb</code><code>canonical G1. Legibility under hero copy.</code></div><div class="sc-swatch"><div class="sc-grad on-canvas"><i style="background: var(--gradient-glow-cursor); mix-blend-mode: screen"></i></div><b>glow-cursor</b><code>radial · closest-side at center · srgb</code><code>canonical G3. 52vmax disc, mix-blend screen, dark only.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="--mx: 50%; --my: 50%; background: var(--gradient-ring-spotlight); padding: 1px; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; border-radius: var(--radius-slab)"></i></div><b>ring-spotlight</b><code>radial · 260px circle at var(--mx) var(--my) · srgb</code><code>canonical G4. Masked to a 1px ring; the 90% is the hover peak, 0 at rest.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="--mx: 50%; --my: 50%; background: var(--gradient-ring-spotlight-inverse); padding: 1px; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; border-radius: var(--radius-slab)"></i></div><b>ring-spotlight-inverse</b><code>radial · 260px circle at var(--mx) var(--my) · srgb</code><code>canonical G4 inverse (19 Sep). On an accent-washed card.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="--mx: 50%; --my: 50%; background: var(--gradient-sheen)"></i></div><b>sheen</b><code>radial · 420px circle at var(--mx) var(--my) · srgb</code><code>canonical G5.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="--mx: 50%; --my: 50%; background: var(--gradient-sheen-inverse)"></i></div><b>sheen-inverse</b><code>radial · 420px circle at var(--mx) var(--my) · srgb</code><code>canonical G5 inverse.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background: var(--gradient-portrait-fade)"></i></div><b>portrait-fade</b><code>linear · to top · srgb</code><code>canonical G6. Legibility over a portrait.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background: var(--gradient-ambience-accent)"></i></div><b>ambience-accent</b><code>radial · 70% 50% at 80% 100% · srgb</code><code>canonical G7. One per viewport.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background: var(--gradient-wash-accent)"></i></div><b>wash-accent</b><code>linear · 135deg · srgb</code><code>canonical G8. Fades out on hover.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background: var(--gradient-wash-ink-reverse)"></i></div><b>wash-ink-reverse</b><code>linear · 315deg · srgb</code><code>canonical G9. In on hover; the reverse of wash-accent.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background-image: var(--gradient-dots); background-size: 18px 18px; opacity: 0.4"></i></div><b>dots</b><code>radial · 1px · srgb</code><code>canonical G10. 1px dots on an 18px grid at opacity 0.4.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background: var(--gradient-corner-fade)"></i></div><b>corner-fade</b><code>radial · 60% 60% at 100% 0% · srgb</code><code>canonical G11. Fades a texture toward a corner.</code></div><div class="sc-swatch"><div class="sc-grad on-canvas"><i style="background: var(--gradient-backlight-accent)"></i></div><b>backlight-accent</b><code>radial · 60% 60% at 50% 70% · srgb</code><code>canonical G12. Behind a device.</code></div><div class="sc-swatch"><div class="sc-grad on-canvas"><i style="background: var(--gradient-backlight-amber)"></i></div><b>backlight-amber</b><code>radial · 60% 50% at 50% 80% · srgb</code><code>canonical G13. Illustration only, never UI.</code></div><div class="sc-swatch"><div class="sc-grad on-canvas"><i style="background: var(--gradient-og-ribbon-1)"></i></div><b>og-ribbon-1</b><code>radial · closest-side at center · oklch</code><code>canonical G14. The one two-hue gradient outside the shader.</code></div><div class="sc-swatch"><div class="sc-grad on-canvas"><i style="background: var(--gradient-og-ribbon-2)"></i></div><b>og-ribbon-2</b><code>radial · closest-side at center · oklch</code><code>canonical G15.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background: var(--gradient-chart-area)"></i></div><b>chart-area</b><code>linear · 180deg · srgb</code><code>derived. Area fill under series 1.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background: var(--gradient-chart-area-2)"></i></div><b>chart-area-2</b><code>linear · 180deg · srgb</code><code>derived.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background-image: var(--gradient-shimmer); background-size: 200% 100%; animation: cq-shimmer var(--dur-count) linear infinite"></i></div><b>shimmer</b><code>linear · 100deg · srgb</code><code>derived. Skeleton shimmer, 200% wide, travels once per 1.6s.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="inset: 0 auto 0 0; width: 2px; background: var(--gradient-live-edge)"></i></div><b>live-edge</b><code>linear · 180deg · srgb</code><code>derived. A 2px left edge on a new console row, fades over 2s.</code></div><div class="sc-swatch"><div class="sc-grad "><i style="background: var(--gradient-scrim-sheet)"></i></div><b>scrim-sheet</b><code>linear · 180deg · srgb</code><code>derived. Flat scrim as a gradient token for platforms that need one.</code></div></div>
+</section>
+
+<section class="sc-section" id="ring">
+<h2>Illuminated border and sheen</h2>
+<p>Move the pointer. The ring is a 1px mask; the sheen sits behind it. The inverse pair belongs on an accent-washed card.</p>
+<div class="sc-grid-2">
+<div class="sc-spot"><div class="core"><span class="sc-mono">ring-spotlight + sheen</span></div><i class="ring"></i><i class="sheen"></i></div>
+<div class="sc-spot inverse"><div class="core" style="background-image: var(--gradient-wash-accent)"><span class="sc-mono">inverse, over wash-accent</span></div><i class="ring"></i><i class="sheen"></i></div>
+</div>
+</section>
+
+<section class="sc-section" id="wash">
+<h2>The wash and its reverse</h2>
+<p>Hover: the accent wash fades out from the top-left while the ink wash comes in from the bottom-right, over <code>--transition-wash</code>.</p>
+<div class="sc-grid-2">
+<div class="sc-grad" style="height: 200px; position: relative" onmouseenter="this.classList.add('h')" onmouseleave="this.classList.remove('h')"><i style="background: var(--gradient-wash-accent); transition: opacity var(--transition-wash)" class="a"></i><i style="background: var(--gradient-wash-ink-reverse); opacity: 0; transition: opacity var(--transition-wash)" class="b"></i><style>.sc-grad.h .a { opacity: 0 } .sc-grad.h .b { opacity: 1 }</style></div>
+<div class="sc-grad on-accent" style="height: 200px; display: grid; place-items: center"><span style="color: var(--text-on-accent); font-family: var(--font-display); font-weight: 700; font-size: var(--font-size-display-s)">A colour block is flat</span></div>
+</div>
+</section>
+
+<section class="sc-section" id="glows">
+<h2>Ambient glows and their cap</h2>
+<p>One ambient glow per viewport. Left: allowed (one). Right: the same two cards with two glows, which fails D-017 and reads as noise.</p>
+<div class="sc-grid-2">
+<div class="sc-tile" style="position: relative; overflow: hidden; min-height: 200px"><i style="position: absolute; inset: 0; background: var(--gradient-ambience-accent)"></i><b style="position: relative">One focal card</b></div>
+<div class="sc-tile" style="position: relative; overflow: hidden; min-height: 200px"><i style="position: absolute; inset: 0; background: var(--gradient-ambience-accent)"></i><i style="position: absolute; inset: 0; background: var(--gradient-backlight-accent); transform: scaleX(-1)"></i><b style="position: relative; color: var(--feedback-danger-text)">Two glows (fails)</b></div>
+</div>
+</section>
+
+<section class="sc-section" id="surfaces">
+<h2>Glass, grain, bezel, duotone</h2>
+<p>Glass only on fixed chrome (the mode bar on this page is the real thing). The grain layer sits over everything at 0.06 overlay on ink and 0.16 multiply on paper.</p>
+<div class="sc-grid-2">
+<div class="sc-glass-demo"><div class="behind"><b>Text behind</b></div><div class="pill"><span class="sc-mono" style="color: var(--text-primary)">glass · 55% canvas · blur 20</span></div></div>
+<div class="sc-spot"><div class="core"><span class="sc-mono">the double bezel</span><p style="margin-top: var(--space-3)">6px shell at 4%, hairline 8%, core with a 1px top light.</p></div></div>
+<div class="sc-grad" style="height: 220px; background: var(--surface-device); border-radius: var(--radius-device); padding: 6px; box-shadow: var(--shadow-device)"><div style="height: 100%; border-radius: var(--radius-device-screen); background: var(--surface-device-screen)"></div></div>
+<div class="sc-grad" style="height: 220px; position: relative; overflow: hidden"><i style="background: var(--surface-raised); filter: grayscale(1) contrast(1.08) brightness(0.92)"></i><i style="background: var(--accent-fill); mix-blend-mode: multiply; opacity: var(--opacity-wash-closed)"></i><i style="background: var(--gradient-portrait-fade)"></i><span style="position: absolute; left: var(--space-4); bottom: var(--space-4); font-family: var(--font-display); font-weight: 700; font-size: var(--font-size-h2)">Duotone + portrait fade</span></div>
+</div>
+</section>
+
+<section class="sc-section" id="data">
+<h2>Gradients in data</h2>
+<p>Area under series 1 and 2 only; bars flat; a sequential ramp for heatmaps with the value also labelled.</p>
+<div class="sc-grid-2">
+<div class="sc-tile"><svg viewBox="0 0 320 120" width="100%" aria-label="Revenue by hour, an area chart" role="img"><defs><linearGradient id="a1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--chart-1)" stop-opacity="0.24"/><stop offset="1" stop-color="var(--chart-1)" stop-opacity="0"/></linearGradient></defs><path d="M0 90 L40 70 L80 78 L120 40 L160 48 L200 20 L240 34 L280 26 L320 44 L320 120 L0 120 Z" fill="url(#a1)"/><path d="M0 90 L40 70 L80 78 L120 40 L160 48 L200 20 L240 34 L280 26 L320 44" fill="none" stroke="var(--chart-1)" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="119" x2="320" y2="119" stroke="var(--line-hairline)"/></svg></div>
+<div class="sc-tile"><div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px"><div style="height: 48px; border-radius: 6px; background: var(--color-vermilion-100); display: grid; place-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--color-ink-1)">12</div><div style="height: 48px; border-radius: 6px; background: var(--color-vermilion-200); display: grid; place-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--color-ink-1)">34</div><div style="height: 48px; border-radius: 6px; background: var(--color-vermilion-300); display: grid; place-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--color-ink-1)">56</div><div style="height: 48px; border-radius: 6px; background: var(--color-vermilion-500); display: grid; place-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--color-bone-1)">78</div><div style="height: 48px; border-radius: 6px; background: var(--color-vermilion-700); display: grid; place-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--color-bone-1)">91</div></div><span class="sc-mono" style="display: block; margin-top: var(--space-2)">sequential ramp, values labelled</span></div>
+</div>
+</section>
+
+</main>
+<script>CQ.modebar({ home: "index.html", density: false });</script>
+</body>
+</html>

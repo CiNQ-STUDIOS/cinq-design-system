@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b0a">
+<title>Detail record · CiNQ archetype</title>
+<link rel="icon" href="../mark.svg">
+<link rel="stylesheet" href="../../implementations/variables.css">
+<link rel="stylesheet" href="../../implementations/motion.css">
+<link rel="stylesheet" href="../../code/react/primitives.css">
+<link rel="stylesheet" href="../showcase.css">
+<link rel="stylesheet" href="shell.css">
+<script src="../showcase.js"></script>
+</head>
+<body data-density-root>
+<a class="cq-sr-only" href="#main">Skip to main</a>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<div class="app">
+
+<aside class="cq-sidebar">
+  <a class="sc-lockup" href="../index.html" aria-label="CiNQ RMS home"><span class="sc-mark" style="width: 22px; height: 22px" data-mark></span><b>CiNQ RMS</b></a>
+  <nav aria-label="Main" style="display: flex; flex-direction: column; gap: var(--gap-lg)">
+    <div class="cq-sidebar-group"><div class="cq-mono cq-sidebar-kicker">Branch 1</div>
+      <a class="cq-sidebar-link" href="executive-dashboard.html">Overview</a>
+      <a class="cq-sidebar-link" href="data-workspace.html" aria-current="page">Orders</a>
+      <a class="cq-sidebar-link" href="operational-console.html">Floor</a>
+      <a class="cq-sidebar-link" href="data-workspace.html">Menu</a>
+      <a class="cq-sidebar-link" href="data-workspace.html">Staff</a>
+      <a class="cq-sidebar-link" href="executive-dashboard.html">Reports</a>
+      <a class="cq-sidebar-link" href="settings.html">Settings</a>
+    </div>
+  </nav>
+  <div style="margin-top: auto; display: flex; align-items: center; gap: var(--space-3)"><span class="avatar" aria-hidden="true">H</span><div style="font-size: var(--font-size-body-s)"><b>Hamza</b><br><span style="color: var(--text-secondary)">Owner</span></div></div>
+</aside>
+<div class="content">
+
+<header class="appbar">
+  <div class="crumbs" aria-label="Breadcrumb"><span>Orders</span><span aria-hidden="true">/</span><b>#412</b></div>
+  <span class="spacer"></span>
+  
+  <div class="search" role="button" tabindex="0" aria-label="Search, Command K"><span aria-hidden="true">⌕</span><span>Search</span><kbd>⌘K</kbd></div>
+  <span class="avatar" aria-label="Hamza, account menu" role="button" tabindex="0">H</span>
+</header>
+<main id="main" class="page">
+  <div class="page-header"><div><span class="kicker">Order · Table 4 · 14:05 · Hamza</span><h1><span style="font-family: var(--font-mono)">#412</span> Chicken karahi and more</h1><p style="display: flex; gap: var(--space-2); align-items: center"><span class="cq-badge cq-badge-positive">Ready</span><span>Placed 12 minutes ago</span></p></div><div class="actions"><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" class="cq-btn cq-btn-ghost cq-btn-no-ico danger-text"><span class="cq-btn-label">Void</span></button><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" ><span class="cq-btn-label">Print receipt</span></button><button class="cq-btn cq-btn-primary cq-btn-no-ico" type="button" ><span class="cq-btn-label">Mark served</span></button></div></div>
+  <div class="regions">
+    <section class="region span-7 panel" aria-labelledby="it"><div class="region-h"><h2 id="it">Items</h2><span class="cq-mono" style="color: var(--text-tertiary)">3 lines</span></div>
+      <table class="cq-table" style="font-size: var(--body-size)"><thead><tr><th>Item</th><th class="cq-num">Qty</th><th class="cq-num">Unit</th><th class="cq-num">Amount</th></tr></thead><tbody>
+        <tr><td>Chicken karahi</td><td class="cq-num">2</td><td class="cq-num"><span style="font-family: var(--font-mono)">1,600</span></td><td class="cq-num"><span style="font-family: var(--font-mono)">3,200</span></td></tr>
+        <tr><td>Naan</td><td class="cq-num">4</td><td class="cq-num"><span style="font-family: var(--font-mono)">100</span></td><td class="cq-num"><span style="font-family: var(--font-mono)">400</span></td></tr>
+        <tr><td>Raita <small style="color: var(--text-secondary)">no onion</small></td><td class="cq-num">1</td><td class="cq-num"><span style="font-family: var(--font-mono)">150</span></td><td class="cq-num"><span style="font-family: var(--font-mono)">150</span></td></tr>
+      </tbody><tfoot><tr><td colspan="3" style="font-weight: var(--font-weight-medium)">Total</td><td class="cq-num" style="font-weight: var(--font-weight-medium)"><span style="font-family: var(--font-mono)">Rs 3,750</span></td></tr></tfoot></table>
+    </section>
+    <aside class="region span-5 panel" aria-label="Details">
+      <span class="cq-mono" style="color: var(--text-tertiary); display: block; margin-bottom: var(--space-3)">Customer</span>
+      <dl class="kv"><dt>Name</dt><dd>Ayesha Khan</dd><dt>Phone</dt><dd><span style="font-family: var(--font-mono)">+92 300 1234567</span></dd><dt>Visits</dt><dd><span style="font-family: var(--font-mono)">14</span></dd></dl>
+      <div class="kv-group"><span class="cq-mono">Payment</span><dl class="kv"><dt>Method</dt><dd>Cash</dd><dt>Paid</dt><dd><span style="font-family: var(--font-mono)">Rs 3,750</span> ✓</dd></dl></div>
+      <div class="kv-group"><span class="cq-mono">Timeline</span><ol class="timeline">
+        <li><i></i><div>Marked ready by Kitchen<time>14:17</time></div></li>
+        <li><i></i><div>Sent to Grill and Tandoor<time>14:06</time></div></li>
+        <li><i></i><div>Placed by Hamza at Table 4<time>14:05</time></div></li>
+      </ol></div>
+    </aside>
+  </div>
+</main></div></div>
+<script>CQ.modebar({ home: "../index.html", density: true });</script>
+</body>
+</html>

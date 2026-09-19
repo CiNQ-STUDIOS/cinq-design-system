@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b0a">
+<title>Till · CiNQ archetype</title>
+<link rel="icon" href="../mark.svg">
+<link rel="stylesheet" href="../../implementations/variables.css">
+<link rel="stylesheet" href="../../implementations/motion.css">
+<link rel="stylesheet" href="../../code/react/primitives.css">
+<link rel="stylesheet" href="../showcase.css">
+<link rel="stylesheet" href="shell.css">
+<script src="../showcase.js"></script>
+</head>
+<body data-density="touch" data-density-root>
+<a class="cq-sr-only" href="#main">Skip to main</a>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<main id="main" class="till" data-input="touch">
+  <section class="menu" aria-label="Menu">
+    <div class="cats" role="tablist"><button class="chip" role="tab" aria-selected="true" aria-pressed="true" type="button">Karahi</button><button class="chip" role="tab" type="button">BBQ</button><button class="chip" role="tab" type="button">Rice</button><button class="chip" role="tab" type="button">Bread</button><button class="chip" role="tab" type="button">Drinks</button></div>
+    <div class="dishes"><button class="dish" type="button"><b>Chicken karahi</b><span>Rs 1,600</span></button><button class="dish" type="button"><b>Mutton karahi</b><span>Rs 2,200</span></button><button class="dish" type="button"><b>Paneer karahi</b><span>Rs 1,200</span></button><button class="dish" type="button"><b>Chicken white karahi</b><span>Rs 1,700</span></button><button class="dish" type="button"><b>Half chicken karahi</b><span>Rs 900</span></button><button class="dish" type="button"><b>Half mutton karahi</b><span>Rs 1,200</span></button><button class="dish" type="button"><b>Kofta karahi</b><span>Rs 1,400</span></button><button class="dish" type="button"><b>Daal</b><span>Rs 400</span></button></div>
+  </section>
+  <aside class="order" aria-label="Order">
+    <div class="region-h"><h2 style="font-size: var(--font-size-h3); font-weight: 500">Table 4</h2><span class="cq-badge">Dine in</span></div>
+    <div class="ticket">
+      <div class="row"><span>Chicken karahi</span><div class="cq-segmented" style="padding: 2px"><button class="cq-segment" type="button" aria-label="Fewer">−</button><span class="cq-segment" aria-checked="true" role="status" style="min-width: 36px; text-align: center">2</span><button class="cq-segment" type="button" aria-label="More">+</button></div><span style="font-family: var(--font-mono)">3,200</span></div>
+      <div class="row"><span>Naan</span><div class="cq-segmented" style="padding: 2px"><button class="cq-segment" type="button" aria-label="Fewer">−</button><span class="cq-segment" aria-checked="true" style="min-width: 36px; text-align: center">4</span><button class="cq-segment" type="button" aria-label="More">+</button></div><span style="font-family: var(--font-mono)">400</span></div>
+      <div class="row"><span>Raita</span><div class="cq-segmented" style="padding: 2px"><button class="cq-segment" type="button" aria-label="Fewer">−</button><span class="cq-segment" aria-checked="true" style="min-width: 36px; text-align: center">1</span><button class="cq-segment" type="button" aria-label="More">+</button></div><span style="font-family: var(--font-mono)">150</span></div>
+    </div>
+    <div class="total"><span style="color: var(--text-secondary)">Total</span><b>Rs 3,750</b></div>
+    <div class="actions"><button class="cq-btn cq-btn-primary cq-btn-no-ico" type="button" ><span class="cq-btn-label">Send to kitchen</span></button><div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3)"><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" ><span class="cq-btn-label">Pay</span></button><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" ><span class="cq-btn-label">Hold</span></button></div></div>
+  </aside>
+</main>
+<script>CQ.modebar({ home: "../index.html", density: true });</script>
+</body>
+</html>

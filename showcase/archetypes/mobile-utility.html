@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b0a">
+<title>Mobile utility · CiNQ archetype</title>
+<link rel="icon" href="../mark.svg">
+<link rel="stylesheet" href="../../implementations/variables.css">
+<link rel="stylesheet" href="../../implementations/motion.css">
+<link rel="stylesheet" href="../../code/react/primitives.css">
+<link rel="stylesheet" href="../showcase.css">
+<link rel="stylesheet" href="shell.css">
+<script src="../showcase.js"></script>
+</head>
+<body data-density-root>
+<a class="cq-sr-only" href="#main">Skip to main</a>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<main id="main" style="min-height: 100dvh; display: grid; place-items: start center; padding: 0 var(--space-4)">
+<div class="phone" role="region" aria-label="Qeemat, a phone">
+<div class="screen">
+  <div class="topbar"><span>Qeemat</span><span class="live"><i></i>Synced</span></div>
+  <div class="body">
+    <div class="summary"><span class="cq-mono" style="color: var(--text-tertiary); position: relative">Across all accounts</span><div class="cq-numeral" style="color: var(--accent-fill); position: relative; margin-top: var(--space-2)">Rs 100,000</div><div style="position: relative; display: flex; gap: var(--space-4); margin-top: var(--space-3); font-size: var(--font-size-body-s); color: var(--text-secondary)"><span>Income <b style="color: var(--text-primary)"><span style="font-family: var(--font-mono)">Rs 100,000</span></b></span><span>Spent <b style="color: var(--text-primary)"><span style="font-family: var(--font-mono)">Rs 5,350</span></b></span></div></div>
+    <span class="cq-mono" style="color: var(--text-tertiary); display: block; margin: var(--space-4) 0 var(--space-2)">Today</span>
+    <div class="row"><span class="ic" aria-hidden="true">🏦</span><div class="t"><b>Salary</b><small>HBL · bank alert</small></div><span class="v"><span style="font-family: var(--font-mono)">+Rs 100,000</span></span></div><div class="row"><span class="ic" aria-hidden="true">⛽</span><div class="t"><b>Fuel</b><small>PSO · receipt</small></div><span class="v danger-text"><span style="font-family: var(--font-mono)">−Rs 4,500</span></span></div><div class="row"><span class="ic" aria-hidden="true">🚗</span><div class="t"><b>Careem</b><small>SMS alert</small></div><span class="v danger-text"><span style="font-family: var(--font-mono)">−Rs 850</span></span></div>
+    <span class="cq-mono" style="color: var(--text-tertiary); display: block; margin: var(--space-4) 0var(--space-2)">Yesterday</span>
+    <div class="row"><span class="ic" aria-hidden="true">🛒</span><div class="t"><b>Groceries</b><small>Imtiaz · receipt</small></div><span class="v danger-text"><span style="font-family: var(--font-mono)">−Rs 6,200</span></span></div><div class="row"><span class="ic" aria-hidden="true">☕</span><div class="t"><b>Chai</b><small>Cash</small></div><span class="v danger-text"><span style="font-family: var(--font-mono)">−Rs 300</span></span></div>
+  </div>
+  <button class="fab" type="button" aria-label="Add an entry">+</button>
+  <nav class="cq-bottomnav cq-glass" aria-label="Main"><a class="cq-bottomnav-item" href="#" aria-current="page"><span aria-hidden="true">●</span>Home</a><a class="cq-bottomnav-item" href="#"><span aria-hidden="true">▤</span>Receipts</a><a class="cq-bottomnav-item" href="#"><span aria-hidden="true">◔</span>Money</a><a class="cq-bottomnav-item" href="#"><span aria-hidden="true">◯</span>Profile</a></nav>
+</div></div>
+</main>
+<script>CQ.modebar({ home: "../index.html", density: true });</script>
+</body>
+</html>

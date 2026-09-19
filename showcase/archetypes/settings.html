@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b0a">
+<title>Settings · CiNQ archetype</title>
+<link rel="icon" href="../mark.svg">
+<link rel="stylesheet" href="../../implementations/variables.css">
+<link rel="stylesheet" href="../../implementations/motion.css">
+<link rel="stylesheet" href="../../code/react/primitives.css">
+<link rel="stylesheet" href="../showcase.css">
+<link rel="stylesheet" href="shell.css">
+<script src="../showcase.js"></script>
+</head>
+<body data-density-root>
+<a class="cq-sr-only" href="#main">Skip to main</a>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<div class="app">
+
+<aside class="cq-sidebar">
+  <a class="sc-lockup" href="../index.html" aria-label="CiNQ RMS home"><span class="sc-mark" style="width: 22px; height: 22px" data-mark></span><b>CiNQ RMS</b></a>
+  <nav aria-label="Main" style="display: flex; flex-direction: column; gap: var(--gap-lg)">
+    <div class="cq-sidebar-group"><div class="cq-mono cq-sidebar-kicker">Branch 1</div>
+      <a class="cq-sidebar-link" href="executive-dashboard.html">Overview</a>
+      <a class="cq-sidebar-link" href="data-workspace.html">Orders</a>
+      <a class="cq-sidebar-link" href="operational-console.html">Floor</a>
+      <a class="cq-sidebar-link" href="data-workspace.html">Menu</a>
+      <a class="cq-sidebar-link" href="data-workspace.html">Staff</a>
+      <a class="cq-sidebar-link" href="executive-dashboard.html">Reports</a>
+      <a class="cq-sidebar-link" href="settings.html" aria-current="page">Settings</a>
+    </div>
+  </nav>
+  <div style="margin-top: auto; display: flex; align-items: center; gap: var(--space-3)"><span class="avatar" aria-hidden="true">H</span><div style="font-size: var(--font-size-body-s)"><b>Hamza</b><br><span style="color: var(--text-secondary)">Owner</span></div></div>
+</aside>
+<div class="content">
+
+<header class="appbar">
+  <div class="crumbs" aria-label="Breadcrumb"><span>Settings</span><span aria-hidden="true">/</span><b>Roles and permissions</b></div>
+  <span class="spacer"></span>
+  
+  <div class="search" role="button" tabindex="0" aria-label="Search, Command K"><span aria-hidden="true">⌕</span><span>Search</span><kbd>⌘K</kbd></div>
+  <span class="avatar" aria-label="Hamza, account menu" role="button" tabindex="0">H</span>
+</header>
+<main id="main" class="page">
+  <div class="regions">
+    <nav class="region span-4 setting-nav" aria-label="Settings sections"><a href="#">Profile</a><a href="#">Branch</a><a href="#" aria-current="page">Roles and permissions</a><a href="#">Billing</a><a href="#">Integrations</a><a href="#">API keys</a><a href="#">Notifications</a><a href="#">Appearance</a></nav>
+    <div class="region span-8">
+      <div class="group"><h2>Roles and permissions</h2><p>Who can do what at Branch 1. Changes apply the next time each person signs in.</p>
+        <div class="cq-table-wrap"><table class="cq-table"><thead><tr><th>Role</th><th>Can</th><th class="cq-num">People</th></tr></thead><tbody>
+          <tr><td style="font-weight: 500">Owner</td><td style="color: var(--text-secondary)">Everything, billing, roles</td><td class="cq-num"><span style="font-family: var(--font-mono)">1</span></td></tr><tr><td style="font-weight: 500">Manager</td><td style="color: var(--text-secondary)">Orders, menu, staff, reports, prices</td><td class="cq-num"><span style="font-family: var(--font-mono)">2</span></td></tr><tr><td style="font-weight: 500">Waiter</td><td style="color: var(--text-secondary)">Orders on the floor, tables</td><td class="cq-num"><span style="font-family: var(--font-mono)">6</span></td></tr><tr><td style="font-weight: 500">Cashier</td><td style="color: var(--text-secondary)">Till, payments, refunds under Rs 5,000</td><td class="cq-num"><span style="font-family: var(--font-mono)">2</span></td></tr><tr><td style="font-weight: 500">Kitchen</td><td style="color: var(--text-secondary)">Order statuses</td><td class="cq-num"><span style="font-family: var(--font-mono)">3</span></td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="group"><h2>Refund limit</h2><p>Refunds above this need a manager's PIN.</p>
+        <div class="fields" style="max-width: 320px"><div class="cq-field"><label class="cq-label" for="rl">Cashier refund limit</label><input id="rl" class="cq-input" inputmode="decimal" value="Rs 5,000"></div></div>
+      </div>
+      <div class="group"><h2>Appearance</h2><p>Per person; these are your own.</p>
+        <div class="fields">
+          <button class="cq-toggle" role="switch" aria-checked="false" type="button"><span class="cq-toggle-track" aria-hidden="true"><span class="cq-toggle-knob"></span></span><span>Light mode</span></button>
+          <button class="cq-toggle" role="switch" aria-checked="false" type="button"><span class="cq-toggle-track" aria-hidden="true"><span class="cq-toggle-knob"></span></span><span>High contrast</span></button>
+          <div class="cq-field"><label class="cq-label">Motion</label><div class="cq-segmented" role="radiogroup" aria-label="Motion"><button class="cq-segment" role="radio" aria-checked="true" type="button">System</button><button class="cq-segment" role="radio" aria-checked="false" type="button">Full</button><button class="cq-segment" role="radio" aria-checked="false" type="button">Reduced</button></div></div>
+        </div>
+      </div>
+      <div class="group"><h2 class="danger-text">Danger</h2><p>These cannot be undone.</p>
+        <div style="display: flex; gap: var(--space-3)"><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" class="cq-btn cq-btn-ghost cq-btn-no-ico danger-text"><span class="cq-btn-label">Archive Branch 1</span></button><button class="cq-btn cq-btn-destructive cq-btn-no-ico" type="button" ><span class="cq-btn-label">Delete Branch 1</span></button></div>
+      </div>
+      <div style="position: sticky; bottom: 0; padding: var(--space-4) 0; margin-top: var(--space-8); background: var(--surface-canvas); border-top: 1px solid var(--line-hairline); display: flex; justify-content: flex-end; gap: var(--space-2)"><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" ><span class="cq-btn-label">Discard</span></button><button class="cq-btn cq-btn-primary cq-btn-no-ico" type="button" ><span class="cq-btn-label">Save</span></button></div>
+    </div>
+  </div>
+</main></div></div>
+<script>CQ.modebar({ home: "../index.html", density: true });</script>
+</body>
+</html>

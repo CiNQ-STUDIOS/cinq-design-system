@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b0a">
+<title>Data workspace · CiNQ archetype</title>
+<link rel="icon" href="../mark.svg">
+<link rel="stylesheet" href="../../implementations/variables.css">
+<link rel="stylesheet" href="../../implementations/motion.css">
+<link rel="stylesheet" href="../../code/react/primitives.css">
+<link rel="stylesheet" href="../showcase.css">
+<link rel="stylesheet" href="shell.css">
+<script src="../showcase.js"></script>
+</head>
+<body data-density="compact" data-density-root>
+<a class="cq-sr-only" href="#main">Skip to main</a>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<div class="app">
+
+<aside class="cq-sidebar">
+  <a class="sc-lockup" href="../index.html" aria-label="Dentisto home"><span class="sc-mark" style="width: 22px; height: 22px" data-mark></span><b>Dentisto</b></a>
+  <nav aria-label="Main" style="display: flex; flex-direction: column; gap: var(--gap-lg)">
+    <div class="cq-sidebar-group"><div class="cq-mono cq-sidebar-kicker">Branch 1</div>
+      <a class="cq-sidebar-link" href="operational-console.html">Today</a>
+      <a class="cq-sidebar-link" href="data-workspace.html" aria-current="page">Patients</a>
+      <a class="cq-sidebar-link" href="operational-console.html">Appointments</a>
+      <a class="cq-sidebar-link" href="data-workspace.html">Treatments</a>
+      <a class="cq-sidebar-link" href="data-workspace.html">Bills</a>
+      <a class="cq-sidebar-link" href="executive-dashboard.html">Reports</a>
+      <a class="cq-sidebar-link" href="settings.html">Settings</a>
+    </div>
+  </nav>
+  <div style="margin-top: auto; display: flex; align-items: center; gap: var(--space-3)"><span class="avatar" aria-hidden="true">H</span><div style="font-size: var(--font-size-body-s)"><b>Hamza</b><br><span style="color: var(--text-secondary)">Owner</span></div></div>
+</aside>
+<div class="content">
+
+<header class="appbar">
+  <div class="crumbs" aria-label="Breadcrumb"><span>Clinic</span><span aria-hidden="true">/</span><b>Patients</b></div>
+  <span class="spacer"></span>
+  
+  <div class="search" role="button" tabindex="0" aria-label="Search, Command K"><span aria-hidden="true">⌕</span><span>Search</span><kbd>⌘K</kbd></div>
+  <span class="avatar" aria-label="Hamza, account menu" role="button" tabindex="0">H</span>
+</header>
+<main id="main" class="page">
+  <div class="page-header"><div><span class="kicker">812 patients</span><h1>Patients</h1></div><div class="actions"><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" ><span class="cq-btn-label">Import</span></button><button class="cq-btn cq-btn-primary cq-btn-no-ico" type="button" ><span class="cq-btn-label">New patient</span></button></div></div>
+  <div class="toolbar" role="toolbar" aria-label="Filters">
+    <select class="cq-select" aria-label="Saved view" style="width: 160px; min-height: 32px"><option>All patients</option><option>Due balances</option><option>Seen this month</option></select>
+    <input class="cq-input" type="search" placeholder="Search name, MRN, phone" aria-label="Search patients" style="width: 260px; min-height: 32px; border-radius: var(--radius-pill)">
+    <button class="chip" type="button" aria-pressed="true">Doctor: Dr Sara ✕</button>
+    <button class="chip" type="button" aria-pressed="false">Status ▾</button>
+    <button class="chip" type="button" aria-pressed="false">Last visit ▾</button>
+    <span class="spacer" style="margin-left: auto"></span>
+    <button class="chip" type="button" aria-label="Columns">⋯</button>
+  </div>
+  <div class="cq-table-wrap">
+    <table class="cq-table"><caption class="cq-sr-only">Patients</caption>
+      <thead><tr><th style="width: 1px"><label class="cq-check"><input type="checkbox" aria-label="Select all"></label></th><th aria-sort="ascending"><button type="button">Name <span aria-hidden="true" style="color: var(--text-secondary)">▲</span></button></th><th>MRN</th><th>Last visit</th><th>Doctor</th><th class="cq-num">Balance</th><th>Status</th></tr></thead>
+      <tbody><tr><td><label class="cq-check"><input type="checkbox" aria-label="Select Ayesha Khan"></label></td><td><a href="detail-record.html" style="text-decoration: none; font-weight: var(--font-weight-medium)">Ayesha Khan</a></td><td><span style="font-family: var(--font-mono)">00412</span></td><td><span style="font-family: var(--font-mono)">19 Sep 2026</span></td><td>Dr Sara</td><td class="cq-num"><span style="font-family: var(--font-mono)">Rs 0</span></td><td><span class="cq-badge cq-badge-positive">Active</span></td></tr><tr aria-selected="true"><td><label class="cq-check"><input type="checkbox" checked aria-label="Select Bilal Ahmed"></label></td><td><a href="detail-record.html" style="text-decoration: none; font-weight: var(--font-weight-medium)">Bilal Ahmed</a></td><td><span style="font-family: var(--font-mono)">00398</span></td><td><span style="font-family: var(--font-mono)">12 Sep 2026</span></td><td>Dr Sara</td><td class="cq-num danger-text"><span style="font-family: var(--font-mono)">Rs 4,500</span></td><td><span class="cq-badge cq-badge-attention">Due</span></td></tr><tr><td><label class="cq-check"><input type="checkbox" aria-label="Select Fatima Noor"></label></td><td><a href="detail-record.html" style="text-decoration: none; font-weight: var(--font-weight-medium)">Fatima Noor</a></td><td><span style="font-family: var(--font-mono)">00377</span></td><td><span style="font-family: var(--font-mono)">2 Sep 2026</span></td><td>Dr Bilal</td><td class="cq-num"><span style="font-family: var(--font-mono)">Rs 0</span></td><td><span class="cq-badge cq-badge-positive">Active</span></td></tr><tr><td><label class="cq-check"><input type="checkbox" aria-label="Select Hassan Raza"></label></td><td><a href="detail-record.html" style="text-decoration: none; font-weight: var(--font-weight-medium)">Hassan Raza</a></td><td><span style="font-family: var(--font-mono)">00351</span></td><td><span style="font-family: var(--font-mono)">28 Aug 2026</span></td><td>Dr Bilal</td><td class="cq-num danger-text"><span style="font-family: var(--font-mono)">Rs 12,000</span></td><td><span class="cq-badge cq-badge-attention">Due</span></td></tr><tr><td><label class="cq-check"><input type="checkbox" aria-label="Select Maryam Ali"></label></td><td><a href="detail-record.html" style="text-decoration: none; font-weight: var(--font-weight-medium)">Maryam Ali</a></td><td><span style="font-family: var(--font-mono)">00340</span></td><td><span style="font-family: var(--font-mono)">20 Aug 2026</span></td><td>Dr Sara</td><td class="cq-num"><span style="font-family: var(--font-mono)">Rs 0</span></td><td><span class="cq-badge">Archived</span></td></tr><tr><td><label class="cq-check"><input type="checkbox" aria-label="Select Omar Farooq"></label></td><td><a href="detail-record.html" style="text-decoration: none; font-weight: var(--font-weight-medium)">Omar Farooq</a></td><td><span style="font-family: var(--font-mono)">00322</span></td><td><span style="font-family: var(--font-mono)">15 Aug 2026</span></td><td>Dr Sara</td><td class="cq-num"><span style="font-family: var(--font-mono)">Rs 0</span></td><td><span class="cq-badge cq-badge-positive">Active</span></td></tr></tbody>
+    </table>
+    <div class="bulkbar"><b>1 selected</b><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" class="cq-btn cq-btn-ghost cq-btn-sm cq-btn-no-ico"><span class="cq-btn-label">Message</span></button><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" class="cq-btn cq-btn-ghost cq-btn-sm cq-btn-no-ico"><span class="cq-btn-label">Export</span></button><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" class="cq-btn cq-btn-ghost cq-btn-sm cq-btn-no-ico danger-text"><span class="cq-btn-label">Archive</span></button><span class="spacer">1–50 of 812</span></div>
+  </div>
+</main></div></div>
+<script>CQ.modebar({ home: "../index.html", density: true });</script>
+</body>
+</html>

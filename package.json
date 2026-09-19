@@ -13,7 +13,9 @@
     "coverage": "node tooling/coverage/check.js",
     "typecheck": "tsc -p tsconfig.json",
     "lint": "eslint --config tooling/lint/eslint.config.mjs code showcase",
-    "verify": "npm run tokens:check && npm run contrast && npm run motion:check && npm run coverage && npm run typecheck"
+    "verify": "npm run tokens:check && npm run contrast && npm run motion:check && npm run coverage && npm run typecheck",
+    "showcase:build": "node tooling/showcase/build.js && node tooling/showcase/build-archetypes.js",
+    "build": "npm run tokens:build && npm run showcase:build && npm run contrast && npm run coverage"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",

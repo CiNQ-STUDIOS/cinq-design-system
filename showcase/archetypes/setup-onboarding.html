@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b0a">
+<title>Setup · CiNQ archetype</title>
+<link rel="icon" href="../mark.svg">
+<link rel="stylesheet" href="../../implementations/variables.css">
+<link rel="stylesheet" href="../../implementations/motion.css">
+<link rel="stylesheet" href="../../code/react/primitives.css">
+<link rel="stylesheet" href="../showcase.css">
+<link rel="stylesheet" href="shell.css">
+<script src="../showcase.js"></script>
+</head>
+<body data-density-root>
+<a class="cq-sr-only" href="#main">Skip to main</a>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<div class="app no-sidebar"><div class="content">
+<header class="appbar"><a class="sc-lockup" href="../index.html" aria-label="CiNQ RMS"><span class="sc-mark" style="width: 20px; height: 20px" data-mark></span><b>CiNQ RMS</b></a><span class="spacer"></span><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" ><span class="cq-btn-label">Save & exit</span></button></header>
+<main id="main" class="page" style="padding-top: var(--space-12)">
+  <ol class="cq-stepper" aria-label="Progress" style="justify-content: center; margin-bottom: var(--space-10)">
+    <li class="cq-step" data-done="true"><span class="cq-step-num" aria-hidden="true">✓</span><span style="font-size: var(--font-size-body-s); font-weight: 500">Business</span></li><li class="cq-step" aria-current="step"><span class="cq-step-num" aria-hidden="true">2</span><span style="font-size: var(--font-size-body-s); font-weight: 500">Branch</span></li><li class="cq-step"><span class="cq-step-num" aria-hidden="true">3</span><span style="font-size: var(--font-size-body-s); font-weight: 500">Menu</span></li><li class="cq-step"><span class="cq-step-num" aria-hidden="true">4</span><span style="font-size: var(--font-size-body-s); font-weight: 500">Staff</span></li><li class="cq-step"><span class="cq-step-num" aria-hidden="true">5</span><span style="font-size: var(--font-size-body-s); font-weight: 500">Till</span></li><li class="cq-step"><span class="cq-step-num" aria-hidden="true">6</span><span style="font-size: var(--font-size-body-s); font-weight: 500">Review</span></li>
+  </ol>
+  <form class="form-col panel" style="padding: var(--space-8)" onsubmit="return false">
+    <h1 class="t-h1" style="font-family: var(--font-display); font-weight: 700; font-size: var(--font-size-h1); letter-spacing: var(--tracking-display); line-height: var(--leading-tight)">Set up Branch 1</h1>
+    <p style="color: var(--text-secondary); margin-top: var(--space-2); margin-bottom: var(--space-8)">Where it is and when it opens. You can add more branches later.</p>
+    <div class="fields">
+      <div class="cq-field"><label class="cq-label" for="bn">Branch name</label><input id="bn" class="cq-input" value="Branch 1"></div>
+      <div class="cq-field"><label class="cq-label" for="ad">Address</label><textarea id="ad" class="cq-textarea" rows="2">Shop 4, Blue Area, Islamabad</textarea></div>
+      <div class="cq-field"><label class="cq-label" for="ph">Phone</label><input id="ph" class="cq-input" inputmode="tel" value="+92 320 2929511"><p class="cq-help">Printed on receipts.</p></div>
+      <div class="cq-field"><label class="cq-label">Opening hours</label><div style="display: flex; gap: var(--space-3); align-items: center"><input class="cq-input" value="11:00" aria-label="Opens at" style="width: 120px"><span style="color: var(--text-tertiary)">to</span><input class="cq-input" value="23:00" aria-label="Closes at" style="width: 120px"></div></div>
+      <div class="cq-field"><label class="cq-label" for="tz">Time zone</label><select id="tz" class="cq-select"><option>Asia/Karachi (PKT)</option></select></div>
+    </div>
+    <div class="form-actions"><button class="cq-btn cq-btn-ghost cq-btn-no-ico" type="button" ><span class="cq-btn-label">Back</span></button><button class="cq-btn cq-btn-primary cq-btn-no-ico" type="button" ><span class="cq-btn-label">Continue</span></button></div>
+  </form>
+</main></div></div>
+<script>CQ.modebar({ home: "../index.html", density: true });</script>
+</body>
+</html>
