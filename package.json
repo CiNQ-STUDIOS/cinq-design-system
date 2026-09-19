@@ -1,0 +1,24 @@
+{
+  "name": "@cinq/design-system",
+  "version": "2.0.0",
+  "private": true,
+  "description": "CiNQ design system: tokens, specs, primitives, tooling and showcase.",
+  "scripts": {
+    "tokens:build": "node tooling/tokens/build.js",
+    "tokens:check": "node tooling/tokens/build.js --check",
+    "contrast": "node tooling/contrast-check/check.js",
+    "motion:check": "node tooling/motion-check/check.js",
+    "gradient:check": "node tooling/motion-check/check.js --gradients",
+    "audit": "node tooling/audit-script/audit.js",
+    "coverage": "node tooling/coverage/check.js",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint --config tooling/lint/eslint.config.mjs code showcase",
+    "verify": "npm run tokens:check && npm run contrast && npm run motion:check && npm run coverage && npm run typecheck"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "eslint": "^9.30.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.8.0"
+  }
+}
