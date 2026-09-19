@@ -13,7 +13,7 @@
 .appbar .search kbd { margin-left: auto; font-family: var(--font-mono); font-size: var(--font-size-badge); padding: 2px 6px; border-radius: var(--radius-check); background: var(--surface-raised); color: var(--text-secondary); }
 .avatar { width: 32px; height: 32px; border-radius: var(--radius-pill); background: var(--surface-raised); display: grid; place-items: center; font-size: var(--font-size-body-s); font-weight: var(--font-weight-medium); }
 .live { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono); font-size: var(--font-size-overline); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--text-secondary); }
-.live i { width: 8px; height: 8px; border-radius: var(--radius-pill); background: var(--feedback-success-solid); animation: cq-glow-breathe 2400ms var(--ease-in-out) infinite; }
+.live i { width: 8px; height: 8px; border-radius: var(--radius-pill); background: var(--feedback-success-solid); animation: cq-glow-breathe var(--dur-loader-spin) var(--ease-in-out) infinite; }
 main.page { padding: var(--gap-lg); max-width: var(--layout-app-max); width: 100%; margin: 0 auto; flex: 1; }
 .page-header { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--gap-lg); margin-bottom: var(--gap-lg); }
 .page-header .kicker { font-family: var(--font-mono); font-size: var(--font-size-overline); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--text-tertiary); }
@@ -77,12 +77,12 @@ main.page { padding: var(--gap-lg); max-width: var(--layout-app-max); width: 100
 .phone .row .t { flex: 1; min-width: 0; } .phone .row .t b { display: block; font-weight: var(--font-weight-medium); } .phone .row .t small { color: var(--text-secondary); font-size: var(--font-size-body-s); }
 .phone .row .v { font-variant-numeric: tabular-nums; }
 .phone .cq-bottomnav { position: absolute; }
-.phone .fab { position: absolute; right: var(--space-5); bottom: calc(var(--layout-bottom-nav-h) + var(--space-4)); width: 56px; height: 56px; border-radius: var(--radius-pill); background: var(--accent-fill); color: var(--text-on-accent); display: grid; place-items: center; font-size: 28px; box-shadow: var(--shadow-strong); border: 0; }
+.phone .fab { position: absolute; right: var(--space-5); bottom: calc(var(--layout-bottom-nav-h) + var(--space-4)); width: 56px; height: 56px; border-radius: var(--radius-pill); background: var(--accent-fill); color: var(--text-on-accent); display: grid; place-items: center; font-size: var(--font-size-h1); box-shadow: var(--shadow-strong); border: 0; }
 .till { display: grid; grid-template-columns: 60fr 40fr; min-height: 100dvh; }
 .till .menu { padding: var(--gap-lg); display: flex; flex-direction: column; gap: var(--gap-lg); }
 .till .cats { display: flex; gap: var(--space-2); overflow-x: auto; }
 .till .cats .chip { height: 56px; padding: 0 var(--space-5); font-size: var(--font-size-h4); flex: none; }
-.till .dishes { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--gap); }
+.till .dishes { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--gap); } /* cinq-allow: peers, a menu grid (R7) */
 .till .dish { height: 120px; border-radius: var(--radius-slab); background: var(--surface-primary); box-shadow: inset 0 0 0 1px var(--line-hairline); padding: var(--space-4); display: flex; flex-direction: column; justify-content: space-between; text-align: left; border: 0; color: var(--text-primary); font: inherit; cursor: pointer; }
 .till .dish b { font-size: var(--font-size-h4); font-weight: var(--font-weight-medium); }
 .till .dish span { font-family: var(--font-mono); font-size: var(--font-size-body-s); color: var(--text-secondary); }
@@ -91,7 +91,7 @@ main.page { padding: var(--gap-lg); max-width: var(--layout-app-max); width: 100
 .till .ticket { flex: 1; }
 .till .ticket .row { display: grid; grid-template-columns: 1fr auto auto; gap: var(--space-3); align-items: center; height: var(--row-h); border-bottom: 1px solid var(--line-hairline); font-size: var(--body-size); }
 .till .total { display: flex; justify-content: space-between; align-items: baseline; padding: var(--space-6) 0; }
-.till .total b { font-family: var(--font-display); font-variation-settings: var(--font-variation-display-tight); font-weight: var(--font-weight-display-tight); font-size: 40px; letter-spacing: var(--tracking-display-tight); font-variant-numeric: tabular-nums; }
+.till .total b { font-family: var(--font-display); font-variation-settings: var(--font-variation-display-tight); font-weight: var(--font-weight-display-tight); font-size: var(--font-size-numeric); letter-spacing: var(--tracking-display-tight); font-variant-numeric: tabular-nums; }
 .till .actions { display: grid; gap: var(--space-3); }
 .till .actions .cq-btn { min-height: 64px; font-size: var(--font-size-h4); }
 .kds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); padding: var(--gap); }

@@ -1,9 +1,37 @@
 # Changelog
 
-Semantic versions. Major for a renamed or removed token, component or rule.
-Minor for a new one. Patch for a corrected value or wording. Every entry
-says what changed and why, so two agents six months apart do not reinvent
-the same token.
+Semantic versions (`governance/VERSIONING.md`). Newest first. Sections: Added, Changed, Deprecated, Removed, Fixed, Decisions.
+
+## 2.0.0 · 19 Sep 2026
+
+The system that restructures a product instead of recolouring it. Built from the master prompt (`Cinq-Design-Update.zip`, 19 Sep) on top of 1.0.0; `PROGRESS.md` carries the phase log and the final report.
+
+### Added
+- `audit/BRAND_DNA.md` (every value with provenance, 8 principles, 12 signature moves, the full gradient and motion inventories) and `audit/GAP_ANALYSIS.md`.
+- `foundations/tokens.json`, W3C DTCG, the only hand-authored token file: 416 tokens across colour, type, space, radius, border, shadow, blur, opacity, z-index, breakpoint, layout, density, gradient, duration, easing, spring, transition and keyframe references; light and high-contrast values on the same token.
+- `tooling/tokens/build.js` and the generated `implementations/`: `variables.css`, `tailwind.v4.css`, `tailwind.config.ts`, `react_tokens.ts`, `motion.css`, `flutter_theme.dart`, `manifest.json`; `npm run tokens:build` and `tokens:check`.
+- Eleven foundation specifications, including `gradients-and-effects.md` (the catalog, illuminated borders, glow caps, glass, grain, quality and paint budgets), `motion.md`, `transitions-and-choreography.md` (T1–T14), `sound-and-haptics.md`, `theming-and-whitelabel.md`; the generated `contrast-matrix.md` (273 pairs).
+- `layout-architecture/`: grid and spacing with four densities, the anti-bento grammar (R1–R9), nine archetypes with wireframes and lifecycle states, the screen inventory.
+- Seven component specifications in one fixed format; six patterns; four platform documents.
+- `tooling/lint` (ESLint rule + Stylelint config), `audit-script` (scored report), `contrast-check`, `motion-check` (+ `--gradients`), `coverage`, `showcase` builders.
+- `governance/` (versioning, contributing, testing); `AGENT_RULES.md`, `CLAUDE.md`, `.cursorrules`; `MIGRATION_PLAYBOOK.md` with the RMS case study; `COVERAGE_MATRIX.md` (generated, 63 items).
+- `showcase/`: the living style guide, the motion lab, the gradient lab, ten reference screens, bundled fonts.
+- `code/theme-init.ts`: contrast and in-app motion settings alongside the theme.
+
+### Changed
+- Semantic token names are canonical (`--surface-*`, `--text-*`, `--accent-*`, `--line-*`, `--feedback-*`); the 1.0.0 names (`--ink`, `--bone`, `--accent`, `--canvas`, `--text`, `--positive`, `--radius`, `--pad`, …) are generated as aliases.
+- Paper is `#efe9dd` with 16% multiply grain (canonical, D-004); light-mode text and feedback colours deepened to keep AA on the darker paper (D-033); a `line-boundary` token for field borders; pressed accent fills `#e8521f` / `#dc4318`.
+- `code/react/primitives.css` binds to `variables.css` and `motion.css` (its own keyframes removed); the dialog scrim is `--surface-scrim`.
+- Prompts, profiles and the `.mdc` rule point at the new structure.
+
+### Deprecated
+- The 1.0.0 alias names listed above; removed in 3.0.0 once the website imports the shared tokens (D-032).
+
+### Removed
+- `spec/` (superseded by `DESIGN.md`, `foundations/`, `layout-architecture/`, `components/`, `AGENT_RULES.md`) and `tokens/` (superseded by `foundations/tokens.json` and `implementations/`).
+
+### Decisions
+- D-001 to D-033 in `DECISIONS.md`: 5 canonical, 21 derived, 7 proposed (see the final report in `PROGRESS.md`).
 
 ## 1.0.0 · 19 Sep 2026
 

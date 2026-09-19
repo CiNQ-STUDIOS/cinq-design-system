@@ -6,7 +6,7 @@ only; nothing is changed.
 ```
 Audit <product> against the CiNQ design system. Do not change any file. Produce a written inventory at <path>/design-audit.md.
 
-Read brand/design-system/AGENTS.md, spec/DESIGN.md and spec/SURFACES.md first.
+Read brand/design-system/AGENTS.md, DESIGN.md and layout-architecture/archetypes.md first.
 
 Inventory, in this order, with file paths and line numbers for every finding:
 

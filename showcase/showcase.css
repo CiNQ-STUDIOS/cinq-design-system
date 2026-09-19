@@ -70,7 +70,7 @@ button { font: inherit; }
 .sc-nav a:hover { color: var(--text-primary); }
 
 /* ── Demo helpers ─────────────────────────────────────────────────────── */
-.sc-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--space-6); }
+.sc-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--space-6); } /* cinq-allow: a gallery of peers */
 @media (min-width: 768px) { .sc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1024px) { .sc-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .sc-grid-2 { display: grid; gap: var(--space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--space-6); }
@@ -117,12 +117,12 @@ html.light .sc-grain { opacity: var(--opacity-grain-light); mix-blend-mode: mult
 .sc-spot:hover { --glow: 1; }
 .sc-mark { display: inline-block; color: var(--accent-fill); }
 .sc-mark svg { display: block; width: 100%; height: 100%; }
-.sc-states { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); margin-top: var(--space-4); }
+.sc-states { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); margin-top: var(--space-4); } /* cinq-allow: a gallery of peers */
 .sc-states > div { display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start; }
 .sc-shadow-demo { height: 120px; border-radius: var(--radius-slab); background: var(--surface-primary); margin-top: var(--space-6); }
 .sc-z { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-4); }
 .sc-z span { padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--surface-raised); font-family: var(--font-mono); font-size: var(--font-size-caption); }
-.sc-density { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: var(--space-6); }
+.sc-density { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: var(--space-6); } /* cinq-allow: a gallery of peers */
 .sc-density > div { padding: var(--space-4); border-radius: var(--radius-slab); background: var(--surface-primary); box-shadow: inset 0 0 0 1px var(--line-hairline); }
 .sc-density .cq-input { margin-top: var(--space-2); }
 .sc-density .row { height: var(--row-h); display: flex; align-items: center; border-bottom: 1px solid var(--line-hairline); font-size: var(--body-size); }

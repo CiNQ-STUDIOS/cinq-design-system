@@ -10,11 +10,11 @@ The name is `CiNQ`. Not Cinq, not CINQ. Products too: `CiNQ RMS`.
 
 Before any UI work read, in order: `brand/design-system/AGENTS.md`, the
 product profile (`project-profile.md` or `brand/design-system/profiles/<product>.md`),
-`brand/design-system/spec/DESIGN.md`, `brand/design-system/spec/SURFACES.md`.
-Tokens are in `brand/design-system/tokens/tokens.css`. Reference components
+`brand/design-system/DESIGN.md`, `brand/design-system/layout-architecture/archetypes.md`.
+Tokens are in `brand/design-system/implementations/variables.css`. Reference components
 are in `brand/design-system/code/react/primitives.tsx` and `primitives.css`.
 Task prompts are in `brand/design-system/prompts/`. Ship only after walking
-`brand/design-system/spec/PRE-SHIP.md` and writing its report.
+`brand/design-system/AGENT_RULES.md §5` and writing its report.
 
 ## Never
 
@@ -45,7 +45,7 @@ Task prompts are in `brand/design-system/prompts/`. Ship only after walking
 
 ## Stack defaults
 
-Next.js App Router, Tailwind v4 via `tokens/tailwind-v4.css`, GSAP for
+Next.js App Router, Tailwind v4 via `implementations/tailwind.v4.css`, GSAP for
 scroll (marketing only), Motion for component state, Phosphor icons at one
 weight per surface, `next/font/local` from `brand/fonts/`,
-`tokens/theme-init.ts` as the first script in `<head>`.
+`code/theme-init.ts` as the first script in `<head>`.

@@ -13,7 +13,7 @@ site-specific companion to this profile.
 | Primary user | A buyer on a phone, one visit, two minutes. |
 | Secondary user | A recruiter or a partner on a laptop. |
 | Repository | https://github.com/CiNQ-STUDIOS/cinq-website |
-| Design system version | 1.0.0 |
+| Design system version | 2.0.0 (vendored copy is still 1.0.0; D-032) |
 | Profile last reviewed | 19 Sep 2026 |
 
 ## Surfaces in scope
@@ -29,7 +29,7 @@ site-specific companion to this profile.
 |:---|:---|
 | Framework | Next.js 16, App Router, Turbopack, static export |
 | Styling | Tailwind v4 |
-| Token import | `src/app/globals.css` (the site's own copy; converging on `tokens/tokens.css` is D-1) |
+| Token import | `src/app/globals.css` (the site's own copy; converging on `implementations/variables.css` is D-1) |
 | Tailwind mapping | `@theme inline` in globals.css, same names as `tailwind-v4.css` |
 | Motion | GSAP + ScrollTrigger + SplitText for scroll; Motion for component state; React Three Fiber for the hero; Lenis for scroll |
 | Icons | Phosphor, regular for UI, bold inside button discs |
@@ -73,16 +73,16 @@ scroll-linked effect is skipped; the page is static and complete.
 
 | ID | Rule | Deviation | Reason | Owner | Review |
 |:---|:---|:---|:---|:---|:---|
-| D-1 | AGENTS.md first run, step 3 | The site keeps its own token block in `globals.css` instead of importing `tokens/tokens.css`. Names and values match. | The site predates the system; swapping the import is a mechanical change to do in one PR with a full visual check in both modes. | Sameer | 31 Oct 2026 |
+| D-1 | AGENTS.md first run, step 3 | The site keeps its own token block in `globals.css` instead of importing `implementations/variables.css`. Names and values match. | The site predates the system; swapping the import is a mechanical change to do in one PR with a full visual check in both modes. | Sameer | 31 Oct 2026 |
 | D-2 | DESIGN.md §1, no gradients in UI | The hero shader draws vermilion and amber ribbons; the OG image draws the same as soft gradients. | This is the permitted exception named in the rule itself. Recorded so nobody extends it. | Sameer | none |
 | D-3 | DESIGN.md §7, one accent slab per viewport | The process stack alternates ink, accent, ink, accent as cards pin over each other. | Only one accent card is fully visible at a time; the pin makes this read as one. | Sameer | 31 Oct 2026 |
-| D-4 | SURFACES.md marketing, no data tables | The CiNQ RMS visual in the work showcase draws a small floor-board table inside a device frame. | It is an illustration of the product, not UI of the site, and it is inside the escape hatch container. | Sameer | none |
+| D-4 | layout-architecture/archetypes.md marketing, no data tables | The CiNQ RMS visual in the work showcase draws a small floor-board table inside a device frame. | It is an illustration of the product, not UI of the site, and it is inside the escape hatch container. | Sameer | none |
 
 ## Adoption status
 
 | Surface | Tokens | Type | Controls | Cards and tables | Navigation | Overlays | Motion | Copy | Gate |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| The page | done (own copy, D-1) | done | done | done | done | done (menu) | done | done | not yet run against PRE-SHIP.md v1.0.0 |
+| The page | done (own copy, D-1) | done | done | done | done | done (menu) | done | done | audit 28/100 on 19 Sep 2026 (raw durations and inline gradients); AGENT_RULES.md §5 not yet walked |
 
 ## Product-specific decisions
 

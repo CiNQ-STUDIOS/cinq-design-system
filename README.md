@@ -1,113 +1,52 @@
 # CiNQ design system
 
-The portable, agent-readable universal design system for every CiNQ product. Drop
-this folder into any product repository at `brand/design-system/`, point an AI coding agent at `brand/design-system/AGENTS.md`, and
-it has everything it needs to build or convert any screen without asking a
-design question: the colours in both modes, the type, the shapes, the
-motion, the components, the copy rules, the accessibility floor and a gate
-to walk before it says it is done.
+The canonical, multi-platform design system for every CiNQ product: cinqstudios.com, CiNQ RMS, Dentisto, Qeemat and client work. Version 2.0.0.
 
-It is not the brand kit. `brand/brand-kit.html` is the mark, the wordmark,
-the swatches and the cards, for people. This is the same brand written as
-rules and code, for software.
+It is not a brand kit and not a theme. It is a system an AI coding agent or a person can drop into a repository and use to build or convert any screen so that it is structurally CiNQ: the right archetype, one dominant region, the right density, the named transitions, every state, the tokens. Applying only the token layer to a generic app visibly fails to look finished, and the tooling says so with a score.
 
----
+## Start here
 
-## Adding to any product repository
+- People: `DESIGN.md` (the index and the philosophy), then the showcase: open `showcase/index.html` from disk (no network needed).
+- Agents: `AGENTS.md` → `AGENT_RULES.md`.
+- Migrating a product: `MIGRATION_PLAYBOOK.md`.
+- Every decision and its provenance: `DECISIONS.md`; the source audit: `audit/`.
 
-To use this design system in your product repo, pull it into `brand/design-system/`:
+## Layout
 
-### Method 1: Git Submodule (Recommended)
-
-Keeps the design system versioned and cleanly updatable across products:
-
-```bash
-# In your product repo root:
-git submodule add https://github.com/CiNQ-STUDIOS/cinq-design-system.git brand/design-system
-git submodule update --init --recursive
+```
+DESIGN.md · DECISIONS.md · AGENT_RULES.md · COVERAGE_MATRIX.md · MIGRATION_PLAYBOOK.md · PROGRESS.md · CHANGELOG.md
+audit/                 BRAND_DNA.md, GAP_ANALYSIS.md
+foundations/           tokens.json (source of truth) + eleven specifications + the generated contrast matrix
+layout-architecture/   grid and spacing, anti-bento grammar, nine archetypes, screen inventory
+components/            global states, core primitives, advanced form controls, navigation, data surfaces, data visualisation, overlays and feedback
+patterns/              onboarding, forms and validation, search and command, realtime and offline, auth and permissions, documents and print
+platforms/             web and dashboards, mobile apps, tablet/kiosk/POS, marketing and demos
+implementations/       GENERATED: variables.css, tailwind.v4.css, tailwind.config.ts, react_tokens.ts, motion.css, flutter_theme.dart
+code/                  react/primitives.tsx + primitives.css, theme-init.ts
+tooling/               tokens build, lint, audit script, contrast check, motion and gradient check, coverage check, showcase build
+governance/            VERSIONING.md, CONTRIBUTING.md, TESTING.md
+showcase/              index.html, motion-lab.html, gradient-lab.html, archetypes/ (ten reference screens), bundled fonts
+prompts/ · profiles/ · project-profile.md · rules/ · scripts/
 ```
 
-To pull the latest updates whenever the design system changes:
-```bash
-git submodule update --remote --merge
+## Commands
+
+```
+npm install
+npm run build      tokens → implementations · showcase pages · contrast matrix · coverage matrix
+npm run verify     tokens:check · contrast · motion:check · coverage · typecheck
+npm run lint       the cinq ESLint rule on code/ and showcase/
+npm run audit -- path/to/product/src --report audit.md
 ```
 
-### Method 2: Direct Clone / Vendor
+## Installing into a product
 
-If your product does not use submodules:
-
-```bash
-# Clone directly into brand/design-system
-git clone https://github.com/CiNQ-STUDIOS/cinq-design-system.git brand/design-system
-
-# (Optional) Remove nested .git folder if committing directly to your repo
-rm -rf brand/design-system/.git
-# On Windows PowerShell:
-Remove-Item -Recurse -Force brand/design-system/.git
+```
+./scripts/install-to-product.sh path/to/product --submodule
 ```
 
----
+vendors this repository at `brand/design-system/`. Import `implementations/variables.css` first, then `tailwind.v4.css` (or use the `tailwind.config.ts` preset), `motion.css`, and `code/react/primitives.css`; add `code/theme-init.ts`'s script as the first child of `<head>`; Flutter apps use `implementations/flutter_theme.dart`. Then point the agent at `AGENT_RULES.md`.
 
-## Driving your AI coding agent
+## Where the values come from
 
-Once `brand/design-system` is in your product folder, launch your AI coding agent (Claude Code, Cursor, Windsurf, Antigravity, Copilot, etc.) and give it this starting prompt:
-
-```markdown
-Read brand/design-system/AGENTS.md first and follow its first-run procedure exactly.
-
-This is a new product: <name>, <one line on what it does and for whom>.
-Stack: <Next.js 16 / Expo / plain HTML>, <Tailwind v4 / none>.
-Primary surface: <dashboard / mobile app / console / form flow>. Others: <list, or none>.
-Locale: en-PK, PKR, unless told otherwise.
-
-Before building anything:
-1. Fill project-profile.md for this product. Every field, nothing left as a placeholder. Name every surface and its archetype from spec/SURFACES.md.
-2. Install the tokens, the Tailwind mapping, the theme init script and the three fonts per AGENTS.md step 3.
-3. Copy code/react/primitives.tsx and primitives.css in. Compose from them; do not write a parallel button, input, dialog, table or nav.
-
-Then build these screens, in this order: <list>.
-
-Content and data I am giving you: <paste real copy, data shapes, anything the screens show>. Anything not in that material is not on the screen. Ask, do not invent.
-
-When done, walk spec/PRE-SHIP.md and answer with its report template. Register any deviation in the profile with a reason and a review date. Do not report done without the report.
-```
-
----
-
-## What is in it
-
-| Path | What | Who reads it |
-|:---|:---|:---|
-| `AGENTS.md` | Load order, first-run procedure, standing rules, retrofit procedure | Every agent, first |
-| `project-profile.md` | Per-product template: surfaces, stack, locale, deviations | Copied and filled once per product |
-| `profiles/cinq-website.md` | The filled profile for cinqstudios.com | Anyone working on the site |
-| `tokens/tokens.css` | Every value, both modes, three densities. The source of truth. | Every product |
-| `tokens/tokens.ts`, `tokens.json` | Generated mirrors for TypeScript and for non-web targets | Charts, React Native, Figma, email |
-| `tokens/tailwind-v4.css`, `tailwind-v3.cjs` | Tailwind mappings | Tailwind products |
-| `tokens/theme-init.ts` | Dark by default, light opt-in, no flash | Every web product |
-| `spec/DESIGN.md` | The visual language: identity, colour, type, shape, density, motion, components, voice, accessibility, extension | Agents making visual decisions |
-| `spec/SURFACES.md` | The five archetypes, a decision tree, the product map | Agents building a screen |
-| `spec/PRE-SHIP.md` | The gate and the report template | Agents before reporting done |
-| `code/react/primitives.tsx`, `primitives.css` | Copy-in components with every state, zero dependencies | React products |
-| `prompts/` | Task prompts for a new screen, a conversion, an audit, and a self-contained prompt for tools without file access | Whoever is driving the agent |
-| `rules/cinq-design.mdc` | The short rule file for Cursor, Windsurf, Claude Code | Repo-aware agents |
-| `CHANGELOG.md` | Every change to a token or a rule | Everyone, when something looks different |
-
----
-
-## Keeping it alive
-
-- **A new token** goes in `tokens.css` in both modes with a comment, then `node tokens/build-tokens.js`, then the two Tailwind files, then `DESIGN.md`, then `CHANGELOG.md`.
-- **A deviation** goes in the product's profile with a reason and a review date. It never goes in a code comment.
-- **A new product** gets a filled profile committed to its own repository, and a row in `SURFACES.md`'s product map.
-- **A breaking change** (a renamed token, a removed component) is a major version. A new token or component is a minor. A corrected value is a patch.
-
-## Where the values came from
-
-The site at cinqstudios.com. Its `globals.css` was the first token file and
-its `docs/design-system.md` the first spec. This folder generalises both to
-every surface the studio builds, adds what the site never needed (an app
-canvas, semantic colours, chart series, three densities, five archetypes,
-a gate) and measures every text pair. Decisions that were derived rather
-than lifted are listed in `CHANGELOG.md` under 1.0.0 so they can be
-overruled.
+The brand kit (`cinq-website/brand/brand-kit.html`, 19 Sep 2026) and the site's source are canonical; `audit/BRAND_DNA.md` lists every value with its file and line. Everything derived or proposed on top of them is tagged in `DECISIONS.md` with how to overrule it.

@@ -19,7 +19,7 @@ why.
 
 ## Surfaces in scope
 
-One row per surface. Archetype from `spec/SURFACES.md`.
+One row per surface. Archetype from `layout-architecture/archetypes.md`.
 
 | Surface | Archetype | Density | Canvas family | Primary device | Notes |
 |:---|:---|:---|:---|:---|:---|
@@ -76,8 +76,8 @@ known constraint of the user base:
 
 ## Deviation register
 
-The most important section. Every departure from `spec/DESIGN.md` or
-`spec/SURFACES.md`, with a reason and a review date. Hard constraints
+The most important section. Every departure from `DESIGN.md` or
+`layout-architecture/archetypes.md`, with a reason and a review date. Hard constraints
 (DESIGN.md §1) cannot be registered; they are bugs.
 
 | ID | Rule | Deviation | Reason | Owner | Review |

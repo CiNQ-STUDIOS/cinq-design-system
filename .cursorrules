@@ -1,0 +1,9 @@
+# CiNQ design system rules (Cursor / Windsurf)
+
+Read AGENT_RULES.md first, then the product's project-profile.md, DESIGN.md, layout-architecture/archetypes.md and anti-bento-grammar.md. The name is CiNQ.
+
+NEVER in a component: hex/rgb/hsl/named colours or Tailwind palette classes; primitive tokens (--color-*); raw gradients, shadows, durations, easings, @keyframes, fonts, z-index; animating height/width/top/left; backdrop-filter on scrolling elements; a second accent; more than one vermilion fill region per viewport; accent-fill as text colour; light text on vermilion; auto-fit or equal card grids; a card per number; modals for view/edit; missing states; framework transitions; Title Case; em-dashes; Submit/OK/Learn more; invented data; inline strings.
+
+ALWAYS: tokens from implementations/variables.css (web), react_tokens.ts (Motion/RN), flutter_theme.dart (Flutter); one archetype per screen with data-density and a reading path; dark + light + contrast + reduced motion; named transitions T<x> with RM behaviour; skeletons that match geometry; the mark as loader; sentence case, Rs 12,500, 19 Sep 2026; focus visible, labels bound, 44px targets, <dialog> overlays, live regions; custom CSS in @layer components; deviations logged in the profile.
+
+Before "done": npm run verify, npm run lint, npm run audit -- <dir> ≥ 90, the checklist in AGENT_RULES.md §5, the reskin test in §6.

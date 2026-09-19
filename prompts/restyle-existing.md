@@ -11,7 +11,7 @@ Read brand/design-system/AGENTS.md and follow the retrofit procedure. The audit 
 Order of work, and do not skip ahead:
 
 1. Land the tokens with nothing changing visually.
-   - Import tokens/tokens.css before all other styles, and the Tailwind mapping for the version in use.
+   - Import implementations/variables.css before all other styles, and the Tailwind mapping for the version in use.
    - Add the theme init script as the first child of <head>.
    - Load the three fonts with the system's variable names.
    - Build and look. If anything moved, the import order is wrong. Fix that before continuing.
@@ -26,7 +26,7 @@ Order of work, and do not skip ahead:
    g. Overlays: Dialog, BottomSheet, Toast. Native <dialog> replaces any custom trap.
    h. Motion: strip anything outside the archetype's budget. Put remaining scroll effects inside matchMedia.
    i. Copy: sentence case, no em-dashes, buttons say what happens, banned words out, CiNQ spelled correctly. Move strings to the content module.
-   j. Walk spec/PRE-SHIP.md for this surface and write the report. Ship the surface. Then the next.
+   j. Walk AGENT_RULES.md §5 for this surface and write the report. Ship the surface. Then the next.
 
 3. Delete old styles only when a grep shows nothing references them.
 

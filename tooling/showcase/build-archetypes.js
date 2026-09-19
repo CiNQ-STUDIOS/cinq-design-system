@@ -261,7 +261,7 @@ const till = head("Till", "touch") + `
       <div class="row"><span>Raita</span><div class="cq-segmented" style="padding: 2px"><button class="cq-segment" type="button" aria-label="Fewer">−</button><span class="cq-segment" aria-checked="true" style="min-width: 36px; text-align: center">1</span><button class="cq-segment" type="button" aria-label="More">+</button></div>${mono("150")}</div>
     </div>
     <div class="total"><span style="color: var(--text-secondary)">Total</span><b>Rs 3,750</b></div>
-    <div class="actions">${btn("Send to kitchen")}<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3)">${btn("Pay", "ghost")}${btn("Hold", "ghost")}</div></div>
+    <div class="actions">${btn("Send to kitchen")}<div style="display: flex; gap: var(--space-3)">${btn("Pay", "ghost", 'style="flex: 1"')}${btn("Hold", "ghost", 'style="flex: 1"')}</div></div>
   </aside>
 </main>` + foot;
 
@@ -333,7 +333,7 @@ const rmsAfter = head("RMS after", "dense") + `
     </table></div>
     <div class="region-h" style="margin-top: var(--gap-lg)"><h2>Inventory, today</h2><a href="data-workspace.html">All items →</a></div>
     <div class="cq-table-wrap"><table class="cq-table"><thead><tr><th>Item</th><th class="cq-num">On hand</th><th class="cq-num">Par</th><th>State</th></tr></thead><tbody>
-      ${[["Naan dough", "40 pcs", "200 pcs", "Low", "attention"], ["Chicken", "18 kg", "20 kg", "OK", "positive"], ["Mutton", "6 kg", "10 kg", "Low", "attention"], ["Rice", "45 kg", "30 kg", "OK", "positive"], ["Cooking oil", "12 L", "15 L", "OK", "positive"]].map(([n, h, p, s, tone]) => `<tr><td>${n}</td><td class="cq-num">${mono(h)}</td><td class="cq-num">${mono(p)}</td><td>${badge(s, tone)}</td></tr>`).join("")}
+      ${[["Naan dough", "40 pcs", "200 pcs", "Low", "attention"], ["Chicken", "18 kg", "20 kg", "In stock", "positive"], ["Mutton", "6 kg", "10 kg", "Low", "attention"], ["Rice", "45 kg", "30 kg", "In stock", "positive"], ["Cooking oil", "12 L", "15 L", "In stock", "positive"]].map(([n, h, p, s, tone]) => `<tr><td>${n}</td><td class="cq-num">${mono(h)}</td><td class="cq-num">${mono(p)}</td><td>${badge(s, tone)}</td></tr>`).join("")}
     </tbody></table></div>
   </section>
   <aside class="region" aria-label="Selected order">

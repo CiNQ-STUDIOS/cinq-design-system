@@ -50,7 +50,10 @@ for (const it of manifest.items) {
   else if (!found) { status = `phrase "${it.grep}" not found`; fails.push(`${it.item}: ${status}`); }
   rows.push({ item: it.item, files: it.files, status });
 }
-for (const f of required) if (!fs.existsSync(path.join(ROOT, f))) fails.push(`required file missing: ${f}`);
+for (const f of required) {
+  if (f === "COVERAGE_MATRIX.md" && !QUIET) continue; // written by this run
+  if (!fs.existsSync(path.join(ROOT, f))) fails.push(`required file missing: ${f}`);
+}
 
 // placeholders
 const PLACEHOLDER = /\b(TODO|TBD|FIXME|lorem ipsum|insert here|coming soon)\b|\betc\.|\[placeholder\]/i;

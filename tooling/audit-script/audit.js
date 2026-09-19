@@ -36,14 +36,15 @@ const SKIP = /node_modules|\.next|dist|build|out|\.git|implementations[\\/]|toke
 
 const rules = [
   // colour
-  { cat: "colour", w: 2, re: /#(?:[0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})\b(?![^<]*>)/gi, msg: "hex colour", skip: /mark|logo|icon|theme-init|theme\.ts/ },
+  // A hex in a value context (after : ( , = or a quote). Three-digit hexes only after : ( or , so "#412" order ids are not colours.
+  { cat: "colour", w: 2, re: /(?<=[:(,=\s"'])#(?:[0-9a-f]{6}|[0-9a-f]{8})\b|(?<=[:(,]\s*)#[0-9a-f]{3}\b(?![0-9a-f])/gi, msg: "hex colour", skip: /mark|logo|icon|theme-init|theme\.ts/ },
   { cat: "colour", w: 2, re: /\b(?:rgba?|hsla?)\((?!\s*var)/gi, msg: "rgb/hsl colour" },
   { cat: "colour", w: 2, re: /\b(?:bg|text|border|ring|fill|stroke)-\[(?:#|rgb|hsl)/gi, msg: "Tailwind arbitrary colour" },
   { cat: "colour", w: 2, re: /\b(?:bg|text|border)-(?:red|green|blue|yellow|orange|purple|pink|indigo|slate|gray|grey|zinc|neutral|stone|emerald|amber|sky|violet|rose)-\d{2,3}\b/g, msg: "Tailwind palette colour" },
   { cat: "colour", w: 2, re: /Colors\.(?:red|green|blue|orange|grey|black|white|amber|purple|pink|teal|deepOrange)\b/g, msg: "Flutter Colors.*" },
   // gradient
   // A gradient whose only stops are transparent/currentColor is a drawing technique (a caret, a mask), not a colour gradient.
-  { cat: "gradient", w: 3, re: /\b(?:linear|radial|conic)-gradient\([^)]*\)/gi, msg: "raw gradient", skip: /^(?:linear|radial|conic)-gradient\((?:(?!#|rgb|hsl|var\().)*\)$/i },
+  { cat: "gradient", w: 3, re: /\b(?:linear|radial|conic)-gradient\([^)]*\)/gi, msg: "raw gradient", skip: /^(?:linear|radial|conic)-gradient\((?:(?!#|rgb|hsl|var\().)*\)$|^linear-gradient\(#000 0 0\)$/i },
   { cat: "gradient", w: 3, re: /\bbg-gradient-to-\w+\b/g, msg: "Tailwind gradient utility" },
   { cat: "gradient", w: 3, re: /\b(?:Linear|Radial|Sweep)Gradient\(\s*colors:/g, msg: "Flutter raw gradient" },
   // shadow
@@ -53,8 +54,8 @@ const rules = [
   { cat: "shadow", w: 2, re: /\bdrop-shadow(?:-\w+)?\b/g, msg: "drop-shadow" },
   { cat: "shadow", w: 2, re: /\belevation\s*:\s*[1-9]/g, msg: "Flutter elevation" },
   // motion
-  { cat: "motion", w: 2, re: /\b(?:transition|animation)(?:-duration)?\s*:\s*[^;{]*\b\d+(?:\.\d+)?m?s\b/gi, msg: "raw duration" },
-  { cat: "motion", w: 2, re: /cubic-bezier\(/gi, msg: "raw cubic-bezier" },
+  { cat: "motion", w: 2, re: /\b(?:transition|animation)(?:-duration)?\s*:\s*[^;{"]*\b\d+(?:\.\d+)?m?s\b/gi, msg: "raw duration" },
+  { cat: "motion", w: 2, re: /(?<![>`])cubic-bezier\(/gi, msg: "raw cubic-bezier" },
   { cat: "motion", w: 2, re: /\b(?:duration|delay)-\[\d+m?s\]|\bduration-\d{2,4}\b/g, msg: "Tailwind raw duration" },
   { cat: "motion", w: 2, re: /\btransition\s*:\s*(?:all|width|height|top|left|margin|padding)\b/gi, msg: "animating a layout property" },
   { cat: "motion", w: 2, re: /Curves\.(?:easeIn|easeOut|easeInOut|linear|bounce\w*|elastic\w*)\b/g, msg: "Flutter default curve" },
@@ -94,7 +95,20 @@ const hits = [];
 let fileCount = 0;
 for (const f of files(path.resolve(dir))) {
   fileCount++;
-  const text = fs.readFileSync(f, "utf8");
+  // Displayed values (<code>, <pre>), @font-face declarations and lines marked
+  // "cinq-allow: <reason>" are not violations; they are blanked before scanning
+  // so line numbers stay true.
+  const blank = (m) => m.replace(/[^\n]/g, " ");
+  const text = fs
+    .readFileSync(f, "utf8")
+    .replace(/<code\b[^>]*>[\s\S]*?<\/code>/gi, blank)
+    .replace(/<pre\b[^>]*>[\s\S]*?<\/pre>/gi, blank)
+    .replace(/@font-face\s*\{[^}]*\}/gi, blank)
+    .replace(/<meta\s+name="theme-color"[^>]*>/gi, blank)
+    .replace(/linear-gradient\(#000 0 0\)/g, blank)
+    .split("\n")
+    .map((l) => (/cinq-allow:/.test(l) ? " ".repeat(l.length) : l))
+    .join("\n");
   for (const r of rules) {
     if (r.skip && r.skip.test(f)) continue;
     const re = new RegExp(r.re.source, r.re.flags);
